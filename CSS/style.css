@@ -1,0 +1,20 @@
+.btn-large{
+  height: 300%
+
+}
+
+.landing-page{
+  display: block;
+}
+
+.landing-page-hidden{
+  display: none;
+}
+
+.switch-page{
+  display: none;
+}
+
+.database-page{
+  display:none;
+}
