@@ -20,16 +20,20 @@
 
 <!-- Div that shows the landing page -->
   <div id="landing-page" class="col-sm-8 landing-page">
-    <a id="switch-button" class="btn btn-primary btn-block btn-large" name="switch-button" href="#" role="button" onclick="switchButton()">Switch</a>
-    <a id="database-button" class="btn btn-secondary btn-block btn-large" name="database-button" href="#" role="button">Database</a>
+    <a id="switch-button" class="btn btn-primary btn-block btn-large" name="switch-button"
+    href="#" role="button" onclick="switchButton()">Switch</a>
+    <a id="database-button" class="btn btn-secondary btn-block btn-large" name="database-button"
+    href="#" role="button" onclick="databaseButton()">Database</a>
   </div>
 
 <!-- Div that shows username input box -->
   <div id="switch-page" class="col-sm-8 switch-page">
     <form class="" action="index.html" method="post">
       <label for="[object Object]">Username: </label>
-      <input type="text" name="username" value="">
+      <input type="text" name="username" value="" />
     </form>
+    <a class="btn btn-danger btn-block cancel-button" name="cancel-button"
+    role="button" href="#" onclick="cancelButton()">Cancel</a>
   </div>
 
 <!-- Div which contains the database page -->
@@ -54,6 +58,8 @@
         <td>Sulbin</td>
       </tr>
     </table>
+    <a class="btn btn-danger btn-block cancel-button" name="cancel-button"
+    role="button" href="#" onclick="cancelButton()">Cancel</a>
   </div>
   <!-- Right hand border -->
   <div class="col-sm-2"></div>

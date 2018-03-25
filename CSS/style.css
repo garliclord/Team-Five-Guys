@@ -7,14 +7,14 @@
   display: block;
 }
 
-.landing-page-hidden{
-  display: none;
-}
-
 .switch-page{
   display: none;
 }
 
 .database-page{
   display:none;
+}
+
+.cancel-button{
+  margin-top: 5%
 }
