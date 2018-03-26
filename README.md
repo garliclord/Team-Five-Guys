@@ -1,2 +1,5 @@
-# Team-Five-Guys
-Signal team of 5 for project 1
+# Device Tracker Project
+A solution for keeping track of devices
+
+Project 1
+By team-five-guys
