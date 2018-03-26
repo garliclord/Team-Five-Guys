@@ -1,0 +1,26 @@
+.btn-large{
+  height: 120%;
+  text-align: center;
+  margin: 5%;
+
+}
+
+.landing-page{
+  display: block;
+}
+
+.switch-page{
+  display: none;
+}
+
+.database-page{
+  display:none;
+}
+
+.switch-buttons{
+  margin-top: 2%
+}
+
+.current-user{
+  align: center;
+}
