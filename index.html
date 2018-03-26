@@ -11,6 +11,7 @@
   </head>
   <body>
 
+  <h1 class="text-center">Current user: Bryce</h1>
 
 <!-- Div for the Buttons  -->
 <div class="row">
@@ -18,21 +19,29 @@
   <!-- Left hand border -->
   <div class="col-sm-2"></div>
 
+
 <!-- Div that shows the landing page -->
-  <div id="landing-page" class="col-sm-8 landing-page">
-    <a id="switch-button" class="btn btn-primary btn-block btn-large" name="switch-button"
+  <div id="landing-page-col-1" class="col-sm-4 landing-page">
+    <a id="switch-button" class="btn btn-success btn-block btn-large" name="switch-button"
     href="#" role="button" onclick="switchButton()">Switch</a>
     <a id="database-button" class="btn btn-secondary btn-block btn-large" name="database-button"
     href="#" role="button" onclick="databaseButton()">Database</a>
   </div>
+  <div id="landing-page-col-2" class="col-sm-4 landing-page">
+    <a id="register-button" class="btn btn-warning btn-block btn-large" name="switch-button"
+    href="#" role="button" onclick="switchButton()">Register New</a>
+    <a id="info-button" class="btn btn-info btn-block btn-large" name="database-button"
+    href="#" role="button" onclick="databaseButton()">Info</a>
+  </div>
 
-<!-- Div that shows username input box -->
+<!-- Div which contains the switch user page-->
   <div id="switch-page" class="col-sm-8 switch-page">
     <form class="" action="index.html" method="post">
       <label for="[object Object]">Username: </label>
       <input type="text" name="username" value="" />
+      <input type="button" class="btn btn-success btn-block switch-buttons" name="Confirm" value="Confirm">
     </form>
-    <a class="btn btn-danger btn-block cancel-button" name="cancel-button"
+    <a class="btn btn-danger btn-block cancel-button switch-buttons" name="cancel-button"
     role="button" href="#" onclick="cancelButton()">Cancel</a>
   </div>
 

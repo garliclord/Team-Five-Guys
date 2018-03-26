@@ -1,5 +1,7 @@
 .btn-large{
-  height: 300%
+  height: 120%;
+  text-align: center;
+  margin: 5%;
 
 }
 
@@ -15,6 +17,10 @@
   display:none;
 }
 
-.cancel-button{
-  margin-top: 5%
+.switch-buttons{
+  margin-top: 2%
+}
+
+.current-user{
+  align: center;
 }
