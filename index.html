@@ -9,9 +9,9 @@
     <script type="text/javascript" src="Scripts/bootstrap.js"></script>
     <script type="text/javascript" src="Scripts/Script.js"></script>
   </head>
-  <body>
+  <body onload="startUpFunction()">
 
-  <h1 class="text-center">Current user: Bryce</h1>
+  <h1 id="currentUser" class="text-center"> </h1>
 
 <!-- Div for the Buttons  -->
 <div class="row">
@@ -27,19 +27,21 @@
     <a id="database-button" class="btn btn-secondary btn-block btn-large" name="database-button"
     href="#" role="button" onclick="databaseButton()">Database</a>
   </div>
+
   <div id="landing-page-col-2" class="col-sm-4 landing-page">
     <a id="register-button" class="btn btn-warning btn-block btn-large" name="switch-button"
-    href="#" role="button" onclick="switchButton()">Register New</a>
+    href="#" role="button" onclick="">Register New</a>
     <a id="info-button" class="btn btn-info btn-block btn-large" name="database-button"
-    href="#" role="button" onclick="databaseButton()">Info</a>
+    href="#" role="button" onclick="">Info</a>
   </div>
 
 <!-- Div which contains the switch user page-->
   <div id="switch-page" class="col-sm-8 switch-page">
     <form class="" action="index.html" method="post">
       <label for="[object Object]">Username: </label>
-      <input type="text" name="username" value="" />
-      <input type="button" class="btn btn-success btn-block switch-buttons" name="Confirm" value="Confirm">
+      <input id="usernameInput" type="text" name="username" value="" />
+      <input type="button" class="btn btn-success btn-block switch-buttons" name="Confirm"
+      value="Confirm" onclick="switchConfirmButton()">
     </form>
     <a class="btn btn-danger btn-block cancel-button switch-buttons" name="cancel-button"
     role="button" href="#" onclick="cancelButton()">Cancel</a>
