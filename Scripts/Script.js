@@ -17,22 +17,20 @@ function displayCurrentUser (userName) {
 
 // To be called when the switch button is pressed
 // Displays the switch page
-function switchButton () {
+function loadSwitchPage () {
   changeDisplay('landing-page', 'none')
   changeDisplay('switch-page', 'block')
 }
 
-// To be called when the database button is pressed
-// Displays the database page
-function databaseButton () {
+function loadSearchPage () {
   changeDisplay('landing-page', 'none')
-  changeDisplay('database-page', 'block')
+  changeDisplay('search-page', 'block')
 }
 
 // To be called when the cancel button is pressed, changes the display of all page divs to 'none'
 // and turns the landing-page div display to 'block'
 function cancelButton () {
-  changeDisplay('database-page', 'none')
+  changeDisplay('search-page', 'none')
   changeDisplay('switch-page', 'none')
   changeDisplay('landing-page', 'block')
 }
@@ -50,6 +48,15 @@ function switchConfirmButton () {
   changeDisplay('landing-page', 'block')
 }
 
+function searchConfirm() {
+  changeDisplay('search-landing-page', 'none')
+  changeDisplay('search-confirm-page', 'block')
+}
+
+function searchSpecsDisplay () {
+  changeDisplay('search-confirm-page', 'none')
+  changeDisplay('search-specs-page', 'block')
+}
 // Enter the class name you want to select, and the value you want to change display to
 function changeDisplay (name, value) {
   var elem = document.getElementsByClassName(name)

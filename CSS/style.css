@@ -13,14 +13,14 @@
   display: none;
 }
 
-.database-page{
+.search-page{
   display:none;
 }
 
-.switch-buttons{
-  margin-top: 2%
+.search-confirm-page{
+  display:none
 }
 
-.current-user{
-  align: center;
+.search-specs-page{
+  display:none;
 }
