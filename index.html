@@ -29,9 +29,9 @@
   </div>
 
   <div id="landing-page-col-2" class="col-sm-4 landing-page">
-    <a id="register-button" class="btn btn-warning btn-block btn-large" name="switch-button"
-    href="#" role="button" onclick="">Register New</a>
-    <a id="info-button" class="btn btn-info btn-block btn-large" name="database-button"
+    <a id="register-button" class="btn btn-warning btn-block btn-large" name="register-button"
+    href="#" role="button" onclick="registerButton()">Register New</a>
+    <a id="info-button" class="btn btn-info btn-block btn-large" name="info-button"
     href="#" role="button" onclick="">Info</a>
   </div>
 
@@ -72,6 +72,47 @@
     <a class="btn btn-danger btn-block cancel-button" name="cancel-button"
     role="button" href="#" onclick="cancelButton()">Cancel</a>
   </div>
+
+  <!-- Div showing the two register buttons, new user and new device -->
+<div class="col-sm-8 register-page register-landing-page">
+  <div class="col-sm-4">
+    <a class="btn btn-primary btn-block register-user-button" name="register-user-button"
+    role="button" href="#" onclick="newUser()">Register New User</a>
+  </div>
+  <div class="col-sm-4">
+    <a class="btn btn-secondary btn-block register-device-button" name="register-device-button"
+    role="button" href="#" onclick="newDevice()">Register New Device</a>
+  </div>
+</div>
+
+<!-- Div showing the register new user form -->
+<div class="col-sm-8 register-page register-new-user-page">
+  <form class="" action="index.html" method="post">
+    <label for="[object Object]">Name: </label>
+    <input id="registerUser" type="text" name="Name" value="" />
+    <input type="button" class="btn btn-success btn-block" name="Confirm"
+    value="Confirm" onclick="">
+  </form>
+  <a class="btn btn-danger btn-block cancel-button" name="cancel-button"
+  role="button" href="#" onclick="cancelButton()">Cancel</a>
+</div>
+
+<!-- Div showing the register new device form -->
+<div class="col-sm-8 register-page register-new-device-page">
+  <form class="" action="index.html" method="post">
+    <label for="[object Object]">Device ID: </label>
+    <input id="" type="text" name="device-name" value="" /><br>
+    <label for="[object Object]">Operating System: </label>
+    <input id="" type="text" name="device-os" value="" />
+    <input type="button" class="btn btn-success btn-block" name="Confirm"
+    value="Confirm" onclick="">
+  </form>
+  <a class="btn btn-danger btn-block cancel-button" name="cancel-button"
+  role="button" href="#" onclick="cancelButton()">Cancel</a>
+</div>
+
+</div>
+
   <!-- Right hand border -->
   <div class="col-sm-2"></div>
 </div>

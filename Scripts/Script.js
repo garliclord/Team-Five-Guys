@@ -22,6 +22,22 @@ function switchButton () {
   changeDisplay('switch-page', 'block')
 }
 
+// To be called when the register button is pressed, will display the register new user and register new device buttons
+function registerButton () {
+  changeDisplay('landing-page', 'none')
+  changeDisplay('register-landing-page', 'block')
+}
+
+function newUser () {
+  changeDisplay('register-landing-page', 'none')
+  changeDisplay('register-new-user-page', 'block')
+}
+
+function newDevice () {
+  changeDisplay('register-landing-page', 'none')
+  changeDisplay('register-new-device-page', 'block')
+}
+
 // To be called when the database button is pressed
 // Displays the database page
 function databaseButton () {
@@ -34,7 +50,9 @@ function databaseButton () {
 function cancelButton () {
   changeDisplay('database-page', 'none')
   changeDisplay('switch-page', 'none')
+  changeDisplay('register-page', 'none')
   changeDisplay('landing-page', 'block')
+
 }
 
 // To be called when the user clicks 'Confirm' on the switch page

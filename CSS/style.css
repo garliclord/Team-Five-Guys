@@ -24,3 +24,6 @@
 .current-user{
   align: center;
 }
+.register-page{
+  display: none;
+}
