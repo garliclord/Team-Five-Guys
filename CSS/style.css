@@ -1,7 +1,7 @@
 .btn-large{
   height: 50%;
   width: 50%;
-  text-align: center;
+  align: center;
   margin: 5%;
 
 }
@@ -15,5 +15,13 @@
 }
 
 .info-page{
+  display: none;
+}
+
+.add-device-page{
+  display: none;
+}
+
+.edit-page{
   display: none;
 }

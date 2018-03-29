@@ -18,6 +18,20 @@ function infoBack () {
   changeDisplay('info-page', 'none')
   changeDisplay('os-display-page', 'block')
 }
+function addDevice () {
+  changeDisplay('landing-page', 'none')
+  changeDisplay('add-device-page', 'block')
+}
+
+function editButton () {
+  changeDisplay('info-page', 'none')
+  changeDisplay('edit-page', 'block')
+}
+
+function addDeviceBack () {
+  changeDisplay('add-device-page', 'none')
+  changeDisplay('landing-page', 'block')
+}
 
 // Enter the class name you want to select, and the value you want to change display to
 function changeDisplay (name, value) {

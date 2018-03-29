@@ -35,6 +35,9 @@
   <div class="col-sm-12 landing-page">
     <button type="button" name="Other" class="btn btn-large btn-secondary" onclick="osSelectButton()">Other</button>
   </div>
+  <div class="col-sm-12 landing-page">
+    <button type="button" name="Add" class="btn btn-large btn-warning" onclick="addDevice()">Add New</button>
+  </div>
 
 
   <div class="col-sm-12 os-display-page">
@@ -52,7 +55,7 @@
           <td>iPhone X</td>
           <td>Dave</td>
           <td><a href="#" onclick="infoButton()">Info</a></td>
-          <td>Assign Button</td>
+          <td>Assign</td>
         </tr>
         <tr>
           <td>iPhone 8</td>
@@ -87,8 +90,48 @@
       <td>4G</td>
     </tr>
   </table>
+  <button type="button" name="edit" class="btn btn-large btn-warning" onclick="editButton()">Edit</button>
   <button type="button" name="back" class="btn btn-large btn-danger" onclick="infoBack()">Back</button>
 </div>
+
+<div class="col-sm-12 edit-page">
+<h3>Device Name</h3>
+  <table class="table">
+    <tr>
+      <td>Device Type:</td>
+      <td> <input type="text" name="" value=""> </td>
+    </tr>
+    <tr>
+      <td>OS Type:</td>
+      <td><input type="text" name="" value=""> </td>
+    </tr>
+    <tr>
+      <td>RAM:</td>
+      <td><input type="text" name="" value=""> </td>
+    </tr>
+  </table>
+  <button type="button" name="back" class="btn btn-large btn-danger" onclick="addDeviceBack()">Back</button>
+</div>
+
+<div class="col-sm-12 add-device-page">
+<h3>Device Name</h3>
+  <table class="table">
+    <tr>
+      <td>Device Type:</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>OS Type:</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <button type="button" name="back" class="btn btn-large btn-danger" onclick="addDeviceBack()">Back</button>
+</div>
+
 </div>
 
 
