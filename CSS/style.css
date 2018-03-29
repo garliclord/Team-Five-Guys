@@ -1,5 +1,6 @@
 .btn-large{
-  height: 120%;
+  height: 50%;
+  width: 50%;
   text-align: center;
   margin: 5%;
 
@@ -9,18 +10,10 @@
   display: block;
 }
 
-.switch-page{
+.os-display-page{
   display: none;
 }
 
-.search-page{
-  display:none;
-}
-
-.search-confirm-page{
-  display:none
-}
-
-.search-specs-page{
-  display:none;
+.info-page{
+  display: none;
 }

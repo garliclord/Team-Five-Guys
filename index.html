@@ -11,71 +11,84 @@
   </head>
   <body onload="startUpFunction()">
 
-  <h2 id="currentDevice" class="text-center">Currnet Device: iPhone X</h2>
-  <h2 id="currentUser" class="text-center"> </h2>
 
 <!-- Div for the Buttons  -->
 <div class="row">
 
   <!-- Left hand border -->
-  <div class="col-sm-1"></div>
 
 
 <!-- Div that shows the landing page -->
-  <div id="landing-page-col-1" class="col-sm-10 landing-page">
-    <a id="switch-button" class="btn btn-success btn-block btn-large" name="switch-button"
-    href="#" role="button" onclick="loadSwitchPage()">Switch</a>
-    <a id="search-button" class="btn btn-secondary btn-block btn-large" name="search-button"
-    href="#" role="button" onclick="loadSearchPage()">Search</a>
+  <div class="col-sm-12 landing-page">
+<div class="form-group">
+    <label for="userNameInput">Your Name: </label>
+    <input type="email" class="form-control" id="userNameInput" aria-describedby="userName" placeholder="Enter your name">
+    <small id="nameHelp" class="form-text text-muted">Please enter your name.</small>
+</div>
+</div>
+  <div class="col-sm-12 landing-page">
+    <button type="button" name="iOS" class="btn btn-large btn-primary" onclick="osSelectButton()">iOS</button>
+  </div>
+  <div class="col-sm-12 landing-page">
+    <button type="button" name="Android" class="btn btn-large btn-info" onclick="osSelectButton()">Android</button>
+  </div>
+  <div class="col-sm-12 landing-page">
+    <button type="button" name="Other" class="btn btn-large btn-secondary" onclick="osSelectButton()">Other</button>
   </div>
 
-<!-- Div which contains the switch user page-->
-  <div id="switch-page" class="col-sm-10 switch-page">
-    <form class="" action="index.html" method="post">
-      <label for="[object Object]">Your Name: </label>
-      <input id="usernameInput" type="text" name="username" value="" />
-      <input type="button" class="btn btn-success btn-block" name="Confirm"
-      value="Confirm" onclick="switchConfirmButton()">
-    </form>
-    <a class="btn btn-danger btn-block cancel-button switch-buttons" name="cancel-button"
-    role="button" href="#" onclick="cancelButton()">Cancel</a>
+
+  <div class="col-sm-12 os-display-page">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Device Name</th>
+          <th scope="col">User</th>
+          <th scope="col">Info</th>
+          <th scope="col">Assign</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>iPhone X</td>
+          <td>Dave</td>
+          <td><a href="#" onclick="infoButton()">Info</a></td>
+          <td>Assign Button</td>
+        </tr>
+        <tr>
+          <td>iPhone 8</td>
+          <td>Bryce</td>
+          <td>Info</td>
+          <td>Assign Button</td>
+        </tr>
+        <tr>
+          <td>iPhone 7</td>
+          <td>Joe</td>
+          <td>Info</td>
+          <td>Assign Button</td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" name="back" class="btn btn-large btn-danger" onclick="osSelectBack()">Back</button>
   </div>
 
-<!-- Div which shows the search devices pages -->
-<div id="search-page" class="col-sm-10 search-page">
-  <div class="search-landing-page">
-  <label for="[object Object]">Search Device: </label>
-  <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
+<div class="col-sm-12 info-page">
+<h3>Device Name</h3>
+  <table class="table">
+    <tr>
+      <td>Device Type:</td>
+      <td>iPhone 7</td>
+    </tr>
+    <tr>
+      <td>OS Type:</td>
+      <td>iOS</td>
+    </tr>
+    <tr>
+      <td>RAM</td>
+      <td>4G</td>
+    </tr>
+  </table>
+  <button type="button" name="back" class="btn btn-large btn-danger" onclick="infoBack()">Back</button>
 </div>
-<button type="button" name="search-confirm" class="btn btn-success btn-block" onclick="searchConfirm()">Confirm</button>
-<a class="btn btn-danger btn-block cancel-button switch-buttons" name="cancel-button"
-role="button" href="#" onclick="cancelButton()">Cancel</a>
-</div>
-
-<div class="search-confirm-page">
-  <div class="search-result-message">
-      Bryce has the device!
-  </div>
-  <button type="button" name="search-specs-display" class="btn btn-primary btn-block" onclick="searchSpecsDisplay()">Specifications:</button>
-</div>
-
-<div class="search-specs-page">
-<div class="specs-output">
-  the phone has heaps of RAM
-</div>
-</div>
-</div>
-
-  <!-- Right hand border -->
-  <div class="col-sm-1"></div>
 </div>
 
 
