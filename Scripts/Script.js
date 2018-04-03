@@ -31,6 +31,7 @@ function editButton () {
 function addDeviceBack () {
   changeDisplay('add-device-page', 'none')
   changeDisplay('landing-page', 'block')
+  changeDisplay('edit-page', 'none')
 }
 
 // Enter the class name you want to select, and the value you want to change display to
