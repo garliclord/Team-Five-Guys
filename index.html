@@ -27,17 +27,19 @@
 </div>
 </div>
   <div class="col-sm-12 landing-page">
-    <button type="button" name="iOS" class="btn btn-large btn-primary" onclick="osSelectButton()">iOS</button>
+	<form action="display.cgi" method="post">
+    <button type="submit" value="ios" name="os" class="btn btn-large btn-primary" onclick="osSelectButton()">iOS</button>
   </div>
   <div class="col-sm-12 landing-page">
-    <button type="button" name="Android" class="btn btn-large btn-info" onclick="osSelectButton()">Android</button>
+    <button type="submit" value="android" name="os" class="btn btn-large btn-info" onclick="osSelectButton()">Android</button>
   </div>
   <div class="col-sm-12 landing-page">
-    <button type="button" name="Other" class="btn btn-large btn-secondary" onclick="osSelectButton()">Other</button>
+    <button type="submit" name="other" class="btn btn-large btn-secondary" onclick="osSelectButton()">Other</button>
   </div>
   <div class="col-sm-12 landing-page">
     <button type="button" name="Add" class="btn btn-large btn-warning" onclick="addDevice()">Add New</button>
   </div>
+  </form>
 
 
   <div class="col-sm-12 os-display-page">
@@ -114,6 +116,29 @@
 </div>
 
 <div class="col-sm-12 add-device-page">
+<form action="add_record.cgi" method="post">
+<h2>device name</h2>
+<input type="text" name="name">
+<h2>os type</h2>
+<input type="text" name="os_type">
+<h2>device type</h2>
+<input type="text" name="device_type">
+<h2>os version</h2>
+<input type="text" name="os version">
+<h2>ram</h2>
+<input type="text" name="ram">
+<h2>cpu</h2>
+<input type="text" name="cpu">
+<h2>bit</h2>
+<input type="text" name="bit">
+<h2>screen resolution</h2>
+<input type="text" name="screen_resolution">
+<h2>grade</h2>
+<input type="text" name="grade">
+<h2>uuid</h2>
+<input type="text" name="uuid">
+<input type="submit" value="submit">
+</form>
 <h3>Device Name</h3>
   <table class="table">
     <tr>
