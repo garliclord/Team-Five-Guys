@@ -1,59 +1,30 @@
-// To be called when the page loads, gets the current user and displays it
-function startUpFunction () {
-  var currentUser = loadCurrentUser()
-  displayCurrentUser(currentUser)
-}
+// transition button logic
+function clickButton(id, from, to) {
+  document.querySelector(id).addEventListener("click", () => {
+    document.querySelector(from).classList.toggle("hidden");
+    document.querySelector(to).classList.toggle("hidden");
+  });
+};
+// landing page
+clickButton("#ios-btn", ".landing-page", ".display-page");
+clickButton("#android-btn", ".landing-page", ".display-page");
+clickButton("#other-btn", ".landing-page", ".display-page");
+clickButton("#add-device-btn", ".landing-page", ".add-device-page");
 
-// Gets the current user from the backend
-function loadCurrentUser () {
-  var username = 'Bryce'
-  return username
-}
+// add device page
+clickButton("#add-device-page-back-btn", ".add-device-page", ".landing-page");
 
-// Changes the h1 at the top of the screen to display the current user
-function displayCurrentUser (userName) {
-  document.getElementById('currentUser').innerHTML = 'Current user: ' + userName
-}
+// display page
+clickButton("#display-page-back-btn", ".display-page", ".landing-page");
+clickButton("#info-btn", ".display-page", ".info-page");
+clickButton("#assign-btn", ".display-page", ".assign-overlay");
 
-// To be called when the switch button is pressed
-// Displays the switch page
-function switchButton () {
-  changeDisplay('landing-page', 'none')
-  changeDisplay('switch-page', 'block')
-}
+// info page
+clickButton("#info-page-edit-btn", ".info-page", ".edit-page");
+clickButton("#info-page-back-btn", ".info-page", ".display-page");
 
-// To be called when the database button is pressed
-// Displays the database page
-function databaseButton () {
-  changeDisplay('landing-page', 'none')
-  changeDisplay('database-page', 'block')
-}
+// assign overlay
+clickButton("#assign-overlay-back-btn", ".assign-overlay", ".display-page");
 
-// To be called when the cancel button is pressed, changes the display of all page divs to 'none'
-// and turns the landing-page div display to 'block'
-function cancelButton () {
-  changeDisplay('database-page', 'none')
-  changeDisplay('switch-page', 'none')
-  changeDisplay('landing-page', 'block')
-}
-
-// To be called when the user clicks 'Confirm' on the switch page
-// Will take the data inputted into the 'username' field, change the current user to it
-// And also call the displayCurrentUser() function
-function switchConfirmButton () {
-  var name = document.getElementById('usernameInput').value
-  document.getElementById('usernameInput').value = ''
-  // In the future this will also call the fucntion whcih rewrites and saves the current username, but that isn't made yet
-  var currentUser = name
-  displayCurrentUser(currentUser)
-  changeDisplay('switch-page', 'none')
-  changeDisplay('landing-page', 'block')
-}
-
-// Enter the class name you want to select, and the value you want to change display to
-function changeDisplay (name, value) {
-  var elem = document.getElementsByClassName(name)
-  for (var i = 0; i < elem.length; i++) {
-    elem[i].style.display = value
-  }
-}
+// edit page
+clickButton("#edit-page-back-btn", ".edit-page", ".info-page");
