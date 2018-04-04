@@ -1,27 +1,3 @@
-.btn-large{
-  height: 50%;
-  width: 50%;
-  align: center;
-  margin: 5%;
-
-}
-
-.landing-page{
-  display: block;
-}
-
-.os-display-page{
-  display: none;
-}
-
-.info-page{
-  display: none;
-}
-
-.add-device-page{
-  display: none;
-}
-
-.edit-page{
-  display: none;
+.add-search-btns{
+  margin-top: 20px;
 }

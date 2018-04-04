@@ -6,135 +6,90 @@
     <title>Landing page</title>
     <link rel="stylesheet" href="CSS/bootstrap.css">
     <link rel="stylesheet" href="CSS/style.css">
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script type="text/javascript" src="Scripts/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="Scripts/Script.js"></script>
   </head>
-  <body onload="startUpFunction()">
+  <body>
 
 
-<!-- Div for the Buttons  -->
+
+<!-- Operating system button group -->
 <div class="row">
-
-  <!-- Left hand border -->
-
-
-<!-- Div that shows the landing page -->
-  <div class="col-sm-12 landing-page">
-<div class="form-group">
-    <label for="userNameInput">Your Name: </label>
-    <input type="email" class="form-control" id="userNameInput" aria-describedby="userName" placeholder="Enter your name">
-    <small id="nameHelp" class="form-text text-muted">Please enter your name.</small>
-</div>
-</div>
-  <div class="col-sm-12 landing-page">
-    <button type="button" name="iOS" class="btn btn-large btn-primary" onclick="osSelectButton()">iOS</button>
+<div class="col-sm-12">
+  <h2>Device Operating System: </h2>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="iOS" autocomplete="off"> iOS
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="Android" autocomplete="off"> Android
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="Other" autocomplete="off"> Other
+  </label>
   </div>
-  <div class="col-sm-12 landing-page">
-    <button type="button" name="Android" class="btn btn-large btn-info" onclick="osSelectButton()">Android</button>
-  </div>
-  <div class="col-sm-12 landing-page">
-    <button type="button" name="Other" class="btn btn-large btn-secondary" onclick="osSelectButton()">Other</button>
-  </div>
-  <div class="col-sm-12 landing-page">
-    <button type="button" name="Add" class="btn btn-large btn-warning" onclick="addDevice()">Add New</button>
-  </div>
-
-
-  <div class="col-sm-12 os-display-page">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Device Name</th>
-          <th scope="col">User</th>
-          <th scope="col">Info</th>
-          <th scope="col">Assign</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>iPhone X</td>
-          <td>Dave</td>
-          <td><a href="#" onclick="infoButton()">Info</a></td>
-          <td>Assign</td>
-        </tr>
-        <tr>
-          <td>iPhone 8</td>
-          <td>Bryce</td>
-          <td>Info</td>
-          <td>Assign Button</td>
-        </tr>
-        <tr>
-          <td>iPhone 7</td>
-          <td>Joe</td>
-          <td>Info</td>
-          <td>Assign Button</td>
-        </tr>
-      </tbody>
-    </table>
-    <button type="button" name="back" class="btn btn-large btn-danger" onclick="osSelectBack()">Back</button>
-  </div>
-
-<div class="col-sm-12 info-page">
-<h3>Device Name</h3>
-  <table class="table">
-    <tr>
-      <td>Device Type:</td>
-      <td>iPhone 7</td>
-    </tr>
-    <tr>
-      <td>OS Type:</td>
-      <td>iOS</td>
-    </tr>
-    <tr>
-      <td>RAM</td>
-      <td>4G</td>
-    </tr>
-  </table>
-  <button type="button" name="edit" class="btn btn-large btn-warning" onclick="editButton()">Edit</button>
-  <button type="button" name="back" class="btn btn-large btn-danger" onclick="infoBack()">Back</button>
+ </div>
 </div>
 
-<div class="col-sm-12 edit-page">
-<h3>Device Name</h3>
-  <table class="table">
-    <tr>
-      <td>Device Type:</td>
-      <td> <input type="text" name="" value=""> </td>
-    </tr>
-    <tr>
-      <td>OS Type:</td>
-      <td><input type="text" name="" value=""> </td>
-    </tr>
-    <tr>
-      <td>RAM:</td>
-      <td><input type="text" name="" value=""> </td>
-    </tr>
-  </table>
-  <button type="button" name="back" class="btn btn-large btn-danger" onclick="addDeviceBack()">Back</button>
+<!-- OS Version button group -->
+<div class="row">
+ <div class="col-sm-12">
+   <h2>OS Version</h2>
+ <div class="btn-group btn-group-toggle" data-toggle="buttons">
+   <label class="btn btn-secondary">
+     <input type="radio" name="options" class="android-os" id="OS4" autocomplete="off"> 4
+   </label>
+   <label class="btn btn-secondary">
+     <input type="radio" name="options" class="android-os" id="OS5" autocomplete="off"> 5
+   </label>
+   <label class="btn btn-secondary">
+     <input type="radio" name="options" class="android-os" id="OS6" autocomplete="off"> 6
+   </label>
+   <label class="btn btn-secondary">
+     <input type="radio" name="options" class="android-os iOS-OS" id="OS7" autocomplete="off"> 7
+   </label>
+   <label class="btn btn-secondary">
+     <input type="radio" name="options" class="iOS-OS" id="OS8" autocomplete="off"> 8
+   </label>
+   <label class="btn btn-secondary">
+     <input type="radio" name="options" class="iOS-OS" id="OS9" autocomplete="off"> 9
+   </label>
+   <label class="btn btn-secondary">
+     <input type="radio" name="options" class="iOS-OS" id="OS10" autocomplete="off"> 10
+   </label>
+   </div>
+  </div>
 </div>
 
-<div class="col-sm-12 add-device-page">
-<h3>Device Name</h3>
-  <table class="table">
-    <tr>
-      <td>Device Type:</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td>OS Type:</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
-  <button type="button" name="back" class="btn btn-large btn-danger" onclick="addDeviceBack()">Back</button>
-</div>
+<!-- Performance button group -->
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Performance</h2>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="Obsolete" autocomplete="off"> Obsolete
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="Low" autocomplete="off"> Low
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="Medium" autocomplete="off"> Medium
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="High" autocomplete="off"> High
+    </label>
+    </div>
+   </div>
+ </div>
 
-</div>
+<!-- Search and Add buttons -->
+ <div class="row">
+   <div class="col-sm-12 add-search-btns">
+     <button id="Search" type="button" name="button" class="btn btn-success">Search</button>
+     <button id="Add" type="button" name="button" class="btn btn-warning">Add New</button>
+   </div>
 
-
-
+ </div>
   </body>
 </html>
