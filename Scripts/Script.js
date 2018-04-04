@@ -1,8 +1,4 @@
-
-document.querySelector("#iOS").addEventListener("click", () => {
-  $(".android-os").prop('disabled', true);
-}
-)
+// $('button').prop('disabled', true);
 
 // transition button logic
 function clickButton(id, from, to) {
@@ -15,7 +11,7 @@ function clickButton(id, from, to) {
 clickButton("#ios-btn", ".landing-page", ".display-page");
 clickButton("#android-btn", ".landing-page", ".display-page");
 clickButton("#other-btn", ".landing-page", ".display-page");
-clickButton("#add-device-btn", ".landing-page", ".add-device-page");
+//clickButton("#add-device-btn", ".landing-page", ".add-device-page");
 
 // add device page
 clickButton("#add-device-page-back-btn", ".add-device-page", ".landing-page");
