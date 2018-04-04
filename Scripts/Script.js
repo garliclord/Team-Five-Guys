@@ -8,10 +8,9 @@ function clickButton(id, from, to) {
   });
 };
 // landing page
-clickButton("#ios-btn", ".landing-page", ".display-page");
-clickButton("#android-btn", ".landing-page", ".display-page");
-clickButton("#other-btn", ".landing-page", ".display-page");
-//clickButton("#add-device-btn", ".landing-page", ".add-device-page");
+clickButton("#search-btn", ".landing-page", ".display-page");
+
+clickButton("#add-device-btn", ".landing-page", ".add-device-page");
 
 // add device page
 clickButton("#add-device-page-back-btn", ".add-device-page", ".landing-page");
