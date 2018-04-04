@@ -3,35 +3,91 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
-
-    <title>Cerebral Fix</title>
   </head>
   <body>
-    <div class="container landing-page">
-      <div class="row">
-        <div class="col-sm-6">
-          <button type="button" id="ios-btn" class="btn">iOS</button>
-        </div>
-  
-        <div class="col-sm-6">
-          <button type="button" id="android-btn" class="btn">Android</button>
-        </div>
-  
-        <div class="col-sm-6">
-          <button type="button" id="other-btn" class="btn">Other</button>
-        </div>
-  
-        <div class="col-sm-6">
-          <button type="button" id="add-device-btn" class="btn">Add Device</button>
-        </div>
-      </div>
-    </div>
+    
+<!-- Operating system button group -->
+<div class="row">
+<div class="col-sm-12">
+  <h2>Device Operating System: </h2>
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="ios-btn" autocomplete="off"> iOS
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="android-btn" autocomplete="off"> Android
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="other-btn" autocomplete="off"> Other
+  </label>
+  </div>
+ </div>
+</div>
 
+<!-- OS Version button group -->
+<div class="row">
+ <div class="col-sm-12">
+   <h2>OS Version</h2>
+ <div class="btn-group btn-group-toggle" data-toggle="buttons">
+   <label class="btn btn-secondary">
+     <input type="checkbox" name="options" class="android-os" id="OS4" autocomplete="off"> 4
+   </label>
+   <label class="btn btn-secondary">
+     <input type="checkbox" name="options" class="android-os" id="OS5" autocomplete="off"> 5
+   </label>
+   <label class="btn btn-secondary">
+     <input type="checkbox" name="options" class="android-os" id="OS6" autocomplete="off"> 6
+   </label>
+   <label class="btn btn-secondary">
+     <input type="checkbox" name="options" class="android-os iOS-OS" id="OS7" autocomplete="off"> 7
+   </label>
+   <label class="btn btn-secondary">
+     <input type="checkbox" name="options" class="iOS-OS" id="OS8" autocomplete="off"> 8
+   </label>
+   <label class="btn btn-secondary">
+     <input type="checkbox" name="options" class="iOS-OS" id="OS9" autocomplete="off"> 9
+   </label>
+   <label class="btn btn-secondary">
+     <input type="checkbox" name="options" class="iOS-OS" id="OS10" autocomplete="off"> 10
+   </label>
+ </div>
+  </div>
+</div>
+
+<!-- Performance button group -->
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Performance</h2>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+    <label class="btn btn-secondary">
+      <input type="checkbox" name="options" id="obsolete" autocomplete="off"> Obsolete
+    </label>
+    <label class="btn btn-secondary">
+      <input type="checkbox" name="options" id="low" autocomplete="off"> Low
+    </label>
+    <label class="btn btn-secondary">
+      <input type="checkbox" name="options" id="medium" autocomplete="off"> Medium
+    </label>
+    <label class="btn btn-secondary">
+      <input type="checkbox" name="options" id="high" autocomplete="off"> High
+    </label>
+    </div>
+   </div>
+ </div>
+
+<!-- Search and Add buttons -->
+ <div class="row">
+   <div class="col-sm-12 add-search-btns">
+     <button id="Search" type="button" name="button" class="btn btn-success">Search</button>
+     <button id="Add" type="button" name="button" class="btn btn-warning">Add New</button>
+   </div>
+
+ </div>
+ 
     <div class="container add-device-page hidden">
       <div class="row">
         <div class="col-sm-12">

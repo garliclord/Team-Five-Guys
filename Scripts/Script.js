@@ -1,3 +1,9 @@
+
+document.querySelector("#iOS").addEventListener("click", () => {
+  $(".android-os").prop('disabled', true);
+}
+)
+
 // transition button logic
 function clickButton(id, from, to) {
   document.querySelector(id).addEventListener("click", () => {
