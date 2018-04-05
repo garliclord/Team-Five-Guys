@@ -1,59 +1,64 @@
-// To be called when the page loads, gets the current user and displays it
-function startUpFunction () {
-  var currentUser = loadCurrentUser()
-  displayCurrentUser(currentUser)
-}
+// To be used to hide the os buttons and reset the active property
+function hide(id) {
+  document.querySelectorAll(id).forEach((element) => {
+    element.classList.add("hidden");
+    element.classList.remove("active");
+  });
+};
 
-// Gets the current user from the backend
-function loadCurrentUser () {
-  var username = 'Bryce'
-  return username
-}
+// to be used to show the os buttons which just remove the 'hidden' class
+function show(id) {
+  document.querySelectorAll(id).forEach((element) => {
+    element.classList.remove("hidden");
+  });
+};
 
-// Changes the h1 at the top of the screen to display the current user
-function displayCurrentUser (userName) {
-  document.getElementById('currentUser').innerHTML = 'Current user: ' + userName
-}
+// transition button logic
+function clickButton(id, from, to) {
+  document.querySelector(id).addEventListener("click", () => {
+    document.querySelector(from).classList.toggle("hidden");
+    document.querySelector(to).classList.toggle("hidden");
+  });
+};
 
-// To be called when the switch button is pressed
-// Displays the switch page
-function switchButton () {
-  changeDisplay('landing-page', 'none')
-  changeDisplay('switch-page', 'block')
-}
+// Displays the os versions for the ios OS
+document.querySelector("#ios-btn").addEventListener("click", () => {
+  hide(".android-os");
+  show(".ios-os");
+});
 
-// To be called when the database button is pressed
-// Displays the database page
-function databaseButton () {
-  changeDisplay('landing-page', 'none')
-  changeDisplay('database-page', 'block')
-}
+// Displays the os versions for the android OS
+document.querySelector("#android-btn").addEventListener("click", () => {
+  hide(".ios-os");
+  show(".android-os");
+});
 
-// To be called when the cancel button is pressed, changes the display of all page divs to 'none'
-// and turns the landing-page div display to 'block'
-function cancelButton () {
-  changeDisplay('database-page', 'none')
-  changeDisplay('switch-page', 'none')
-  changeDisplay('landing-page', 'block')
-}
+// Hides all os choices when other is pressed
+document.querySelector("#other-btn").addEventListener("click", () => {
+ hide(".ios-os");
+ hide(".android-os");
+});
 
-// To be called when the user clicks 'Confirm' on the switch page
-// Will take the data inputted into the 'username' field, change the current user to it
-// And also call the displayCurrentUser() function
-function switchConfirmButton () {
-  var name = document.getElementById('usernameInput').value
-  document.getElementById('usernameInput').value = ''
-  // In the future this will also call the fucntion whcih rewrites and saves the current username, but that isn't made yet
-  var currentUser = name
-  displayCurrentUser(currentUser)
-  changeDisplay('switch-page', 'none')
-  changeDisplay('landing-page', 'block')
-}
+// landing page
+clickButton("#search-btn", ".landing-page", ".display-page");
+clickButton("#add-device-btn", ".landing-page", ".add-device-page");
 
-// Enter the class name you want to select, and the value you want to change display to
-function changeDisplay (name, value) {
-  var elem = document.getElementsByClassName(name)
-  for (var i = 0; i < elem.length; i++) {
-    elem[i].style.display = value
-  }
-}
+// add device page
+clickButton("#add-device-page-save-btn", ".add-device-page", ".landing-page");
+clickButton("#add-device-page-back-btn", ".add-device-page", ".landing-page");
+
+// display page
+clickButton("#display-page-back-btn", ".display-page", ".landing-page");
+clickButton("#info-btn", ".display-page", ".info-page");
+clickButton("#assign-btn", ".display-page", ".assign-overlay");
+
+// info page
+clickButton("#info-page-edit-btn", ".info-page", ".edit-page");
+clickButton("#info-page-back-btn", ".info-page", ".display-page");
+
+// assign overlay
+clickButton("#assign-overlay-back-btn", ".assign-overlay", ".display-page");
+
+// edit page
+clickButton("#edit-page-save-btn", ".edit-page", ".info-page");
+clickButton("#edit-page-back-btn", ".edit-page", ".info-page");

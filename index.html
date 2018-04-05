@@ -6,74 +6,157 @@
     <title>Landing page</title>
     <link rel="stylesheet" href="CSS/bootstrap.css">
     <link rel="stylesheet" href="CSS/style.css">
-    <script type="text/javascript" src="Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.bundle.js"></script>
     <script type="text/javascript" src="Scripts/Script.js"></script>
   </head>
   <body onload="startUpFunction()">
 
-  <h1 id="currentUser" class="text-center"> </h1>
 
 <!-- Div for the Buttons  -->
 <div class="row">
 
   <!-- Left hand border -->
-  <div class="col-sm-2"></div>
 
 
 <!-- Div that shows the landing page -->
-  <div id="landing-page-col-1" class="col-sm-4 landing-page">
-    <a id="switch-button" class="btn btn-success btn-block btn-large" name="switch-button"
-    href="#" role="button" onclick="switchButton()">Switch</a>
-    <a id="database-button" class="btn btn-secondary btn-block btn-large" name="database-button"
-    href="#" role="button" onclick="databaseButton()">Database</a>
+  <div class="col-sm-12 landing-page">
+<div class="form-group">
+    <label for="userNameInput">Your Name: </label>
+    <input type="email" class="form-control" id="userNameInput" aria-describedby="userName" placeholder="Enter your name">
+    <small id="nameHelp" class="form-text text-muted">Please enter your name.</small>
+</div>
+</div>
+  <div class="col-sm-12 landing-page">
+	<form action="display.cgi" method="post">
+    <button type="submit" value="ios" name="os" class="btn btn-large btn-primary" onclick="osSelectButton()">iOS</button>
   </div>
-
-  <div id="landing-page-col-2" class="col-sm-4 landing-page">
-    <a id="register-button" class="btn btn-warning btn-block btn-large" name="switch-button"
-    href="#" role="button" onclick="">Register New</a>
-    <a id="info-button" class="btn btn-info btn-block btn-large" name="database-button"
-    href="#" role="button" onclick="">Info</a>
+  <div class="col-sm-12 landing-page">
+    <button type="submit" value="android" name="os" class="btn btn-large btn-info" onclick="osSelectButton()">Android</button>
   </div>
-
-<!-- Div which contains the switch user page-->
-  <div id="switch-page" class="col-sm-8 switch-page">
-    <form class="" action="index.html" method="post">
-      <label for="[object Object]">Username: </label>
-      <input id="usernameInput" type="text" name="username" value="" />
-      <input type="button" class="btn btn-success btn-block switch-buttons" name="Confirm"
-      value="Confirm" onclick="switchConfirmButton()">
-    </form>
-    <a class="btn btn-danger btn-block cancel-button switch-buttons" name="cancel-button"
-    role="button" href="#" onclick="cancelButton()">Cancel</a>
+  <div class="col-sm-12 landing-page">
+    <button type="submit" name="other" class="btn btn-large btn-secondary" onclick="osSelectButton()">Other</button>
   </div>
+  <div class="col-sm-12 landing-page">
+    <button type="button" name="Add" class="btn btn-large btn-warning" onclick="addDevice()">Add New</button>
+  </div>
+  </form>
 
-<!-- Div which contains the database page -->
-  <div class="col-sm-8 database-page">
+
+  <div class="col-sm-12 os-display-page">
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Device</th>
-          <th scope="col">Name</th>
+          <th scope="col">Device Name</th>
+          <th scope="col">User</th>
+          <th scope="col">Info</th>
+          <th scope="col">Assign</th>
         </tr>
       </thead>
-      <tr>
-        <td>iPhone X</td>
-        <td>Bryce</td>
-      </tr>
-      <tr>
-        <td>Windows Phone</td>
-        <td>Carl</td>
-      </tr>
-      <tr>
-        <td>Nokia brick</td>
-        <td>Sulbin</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>iPhone X</td>
+          <td>Dave</td>
+          <td><a href="#" onclick="infoButton()">Info</a></td>
+          <td>Assign</td>
+        </tr>
+        <tr>
+          <td>iPhone 8</td>
+          <td>Bryce</td>
+          <td>Info</td>
+          <td>Assign Button</td>
+        </tr>
+        <tr>
+          <td>iPhone 7</td>
+          <td>Joe</td>
+          <td>Info</td>
+          <td>Assign Button</td>
+        </tr>
+      </tbody>
     </table>
-    <a class="btn btn-danger btn-block cancel-button" name="cancel-button"
-    role="button" href="#" onclick="cancelButton()">Cancel</a>
+    <button type="button" name="back" class="btn btn-large btn-danger" onclick="osSelectBack()">Back</button>
   </div>
-  <!-- Right hand border -->
-  <div class="col-sm-2"></div>
+
+<div class="col-sm-12 info-page">
+<h3>Device Name</h3>
+  <table class="table">
+    <tr>
+      <td>Device Type:</td>
+      <td>iPhone 7</td>
+    </tr>
+    <tr>
+      <td>OS Type:</td>
+      <td>iOS</td>
+    </tr>
+    <tr>
+      <td>RAM</td>
+      <td>4G</td>
+    </tr>
+  </table>
+  <button type="button" name="edit" class="btn btn-large btn-warning" onclick="editButton()">Edit</button>
+  <button type="button" name="back" class="btn btn-large btn-danger" onclick="infoBack()">Back</button>
+</div>
+
+<div class="col-sm-12 edit-page">
+<h3>Device Name</h3>
+  <table class="table">
+    <tr>
+      <td>Device Type:</td>
+      <td> <input type="text" name="" value=""> </td>
+    </tr>
+    <tr>
+      <td>OS Type:</td>
+      <td><input type="text" name="" value=""> </td>
+    </tr>
+    <tr>
+      <td>RAM:</td>
+      <td><input type="text" name="" value=""> </td>
+    </tr>
+  </table>
+  <button type="button" name="back" class="btn btn-large btn-danger" onclick="addDeviceBack()">Back</button>
+</div>
+
+<div class="col-sm-12 add-device-page">
+<form action="add_record.cgi" method="post">
+<h2>device name</h2>
+<input type="text" name="name">
+<h2>os type</h2>
+<input type="text" name="os_type">
+<h2>device type</h2>
+<input type="text" name="device_type">
+<h2>os version</h2>
+<input type="text" name="os version">
+<h2>ram</h2>
+<input type="text" name="ram">
+<h2>cpu</h2>
+<input type="text" name="cpu">
+<h2>bit</h2>
+<input type="text" name="bit">
+<h2>screen resolution</h2>
+<input type="text" name="screen_resolution">
+<h2>grade</h2>
+<input type="text" name="grade">
+<h2>uuid</h2>
+<input type="text" name="uuid">
+<input type="submit" value="submit">
+</form>
+<h3>Device Name</h3>
+  <table class="table">
+    <tr>
+      <td>Device Type:</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>OS Type:</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
+  <button type="button" name="back" class="btn btn-large btn-danger" onclick="addDeviceBack()">Back</button>
+</div>
+
 </div>
 
 
