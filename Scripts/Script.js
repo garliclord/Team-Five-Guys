@@ -3,15 +3,15 @@ function hide(id) {
   document.querySelectorAll(id).forEach((element) => {
     element.classList.add("hidden");
     element.classList.remove("active");
-  })
-}
+  });
+};
 
 // to be used to show the os buttons which just remove the 'hidden' class
 function show(id) {
   document.querySelectorAll(id).forEach((element) => {
     element.classList.remove("hidden");
-  })
-}
+  });
+};
 
 // transition button logic
 function clickButton(id, from, to) {
@@ -25,19 +25,19 @@ function clickButton(id, from, to) {
 document.querySelector("#ios-btn").addEventListener("click", () => {
   hide(".android-os");
   show(".ios-os");
- })
+});
 
 // Displays the os versions for the android OS
 document.querySelector("#android-btn").addEventListener("click", () => {
   hide(".ios-os");
   show(".android-os");
- })
+});
 
 // Hides all os choices when other is pressed
 document.querySelector("#other-btn").addEventListener("click", () => {
  hide(".ios-os");
  hide(".android-os");
-})
+});
 
 // landing page
 clickButton("#search-btn", ".landing-page", ".display-page");
