@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="CSS/style.css">
-    <title>Device manager</title>
-  </head>
-  <body>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="CSS/style.css">
+  <title>Device Manager</title>
+</head>
+
+<body>
 
   <div class="container landing-page">
-  <!-- Operating system button group -->
-  <div class="row">
-    <div class="col-sm-12">
-      <h2>Device Operating System: </h2>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary" id="ios-btn">
-        <input type="radio" name="options"  autocomplete="off"> iOS
-      </label>
-      <label class="btn btn-secondary" id="android-btn">
-        <input type="radio" name="options"  autocomplete="off"> Android
-      </label>
-      <label class="btn btn-secondary" id="other-btn">
-        <input type="radio" name="options"  autocomplete="off"> Other
-    </label>
+    <!-- Operating system button group -->
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Device Operating System: </h2>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary" id="ios-btn">
+            <input type="radio" name="options" autocomplete="off"> iOS
+          </label>
+          <label class="btn btn-secondary" id="android-btn">
+            <input type="radio" name="options" autocomplete="off"> Android
+          </label>
+          <label class="btn btn-secondary" id="other-btn">
+            <input type="radio" name="options" autocomplete="off"> Other
+          </label>
+        </div>
+      </div>
     </div>
-   </div>
-  </div>
 
   <!-- OS Version button group -->
   <div class="row">
@@ -56,153 +59,179 @@
      <label class="btn btn-secondary ios-os hidden">
        <input type="checkbox" name="options" id="os10" autocomplete="off"> 10
      </label>
+    </div>
    </div>
+
+    <!-- Performance button group -->
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Performance</h2>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary">
+            <input type="checkbox" name="options" id="obsolete" autocomplete="off"> Obsolete
+          </label>
+          <label class="btn btn-secondary">
+            <input type="checkbox" name="options" id="low" autocomplete="off"> Low
+          </label>
+          <label class="btn btn-secondary">
+            <input type="checkbox" name="options" id="medium" autocomplete="off"> Medium
+          </label>
+          <label class="btn btn-secondary">
+            <input type="checkbox" name="options" id="high" autocomplete="off"> High
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search and Add buttons -->
+    <div class="row">
+      <div class="col-sm-12 add-search-btns">
+        <button id="search-btn" type="button" name="button" class="btn">Search</button>
+        <button id="add-device-btn" type="button" name="button" class="btn">Add New</button>
+      </div>
     </div>
   </div>
 
-  <!-- Performance button group -->
-  <div class="row">
-    <div class="col-sm-12">
-      <h2>Performance</h2>
-      <div class="btn-group btn-group-toggle" data-toggle="buttons">
-      <label class="btn btn-secondary">
-        <input type="checkbox" name="options" id="obsolete" autocomplete="off"> Obsolete
-      </label>
-      <label class="btn btn-secondary">
-        <input type="checkbox" name="options" id="low" autocomplete="off"> Low
-      </label>
-      <label class="btn btn-secondary">
-        <input type="checkbox" name="options" id="medium" autocomplete="off"> Medium
-      </label>
-      <label class="btn btn-secondary">
-        <input type="checkbox" name="options" id="high" autocomplete="off"> High
-      </label>
+  <div class="container add-device-page hidden">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Add Device</h3>
+        <table class="table">
+          <tr>
+            <td>Device Type:</td>
+            <td>
+              <input type="text" name="" value=""> </td>
+          </tr>
+          <tr>
+            <td>OS Type:</td>
+            <td>
+              <input type="text" name="" value=""> </td>
+          </tr>
+          <tr>
+            <td>RAM:</td>
+            <td>
+              <input type="text" name="" value=""> </td>
+          </tr>
+        </table>
+        <button type="button" id="add-device-page-back-btn" class="btn btn-back">Back</button>
       </div>
-     </div>
-   </div>
-
-  <!-- Search and Add buttons -->
-   <div class="row">
-     <div class="col-sm-12 add-search-btns">
-       <button id="search-btn" type="button" name="button" class="btn btn-success">Search</button>
-       <button id="add-device-btn" type="button" name="button" class="btn btn-warning">Add New</button>
-     </div>
-   </div>
+    </div>
   </div>
 
-    <div class="container add-device-page hidden">
-      <div class="row">
-        <div class="col-sm-12">
-          <h3>Add Device</h3>
-          <table class="table">
+  <div class="container display-page hidden">
+    <div class="row">
+      <div class="col-sm-12">
+        <table class="table">
+          <thead>
             <tr>
-              <td>Device Type:</td>
-              <td> <input type="text" name="" value=""> </td>
+              <th scope="col">Device Name</th>
+              <th scope="col">User</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">iPhone X
+                <button type="button" id="info-btn" class="btn">Info</button>
+              </th>
+              <td>Dave
+                <button type="button" id="assign-btn" class="btn btn-assign">Assign</button>
+              </td>
             </tr>
             <tr>
-              <td>OS Type:</td>
-              <td><input type="text" name="" value=""> </td>
+              <th scope="row">iPhone 8
+                  <button type="button" id="info-btn1" class="btn">Info</button>
+                </th>
+                <td>Bryce
+                  <button type="button" id="assign-btn1" class="btn btn-assign">Assign</button>
+                </td>
             </tr>
             <tr>
-              <td>RAM:</td>
-              <td><input type="text" name="" value=""> </td>
+              <th scope="row">iPhone 7
+                  <button type="button" id="info-btn2" class="btn">Info</button>
+                </th>
+                <td>Bob
+                  <button type="button" id="assign-btn2" class="btn btn-assign">Assign</button>
+                </td>
             </tr>
-          </table>
-          <button type="button" id="add-device-page-back-btn" class="btn btn-back">Back</button>
-        </div>
+          </tbody>
+        </table>
+        <button type="button" id="display-page-back-btn" class="btn btn-back">Back</button>
       </div>
     </div>
+  </div>
 
-    <div class="container display-page hidden">
-      <div class="row">
-        <div class="col-sm-12">
-          <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Device Name</th>
-                <th scope="col">User</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">iPhone X <button type="button" id="info-btn" class="btn">Info</button></th>
-                <td>Dave <button type="button" id="assign-btn" class="btn btn-assign">Assign</button></td>
-              </tr>
-              <tr>
-                <th scope="row">iPhone 8 <a href="info" id="info-btn1">Info</a></th>
-                <td>Bryce <a href="assign" id="assign-btn1">Assign</a></td>
-              </tr>
-              <tr>
-                <th scope="row">iPhone 7 <a href="info" id="info-btn2">Info</a></th>
-                <td>Joe <a href="assign" id="assign-btn2">Assign</a></td>
-              </tr>
-            </tbody>
-          </table>
-          <button type="button" id="display-page-back-btn" class="btn btn-back">Back</button>
-        </div>
+  <div class="container info-page hidden">
+    <div class="row">
+      <div class="col-sm-12 info-page">
+        <h3>Device Name</h3>
+        <table class="table">
+          <tr>
+            <td>Device Type:</td>
+            <td>iPhone 7</td>
+          </tr>
+          <tr>
+            <td>OS Type:</td>
+            <td>iOS</td>
+          </tr>
+          <tr>
+            <td>RAM</td>
+            <td>4G</td>
+          </tr>
+        </table>
+        <button type="button" id="info-page-edit-btn" class="btn">Edit</button>
+        <button type="button" id="info-page-back-btn" class="btn btn-back">Back</button>
       </div>
     </div>
+  </div>
 
-    <div class="container info-page hidden">
-      <div class="row">
-        <div class="col-sm-12 info-page">
-          <h3>Device Name</h3>
-          <table class="table">
-            <tr>
-              <td>Device Type:</td>
-              <td>iPhone 7</td>
-            </tr>
-            <tr>
-              <td>OS Type:</td>
-              <td>iOS</td>
-            </tr>
-            <tr>
-              <td>RAM</td>
-              <td>4G</td>
-            </tr>
-          </table>
-          <button type="button" id="info-page-edit-btn" class="btn">Edit</button>
-          <button type="button" id="info-page-back-btn" class="btn btn-back">Back</button>
-        </div>
+  <div class="container assign-overlay hidden">
+    <div class="row">
+      <div class="col-sm-12">
+        <p>assign-overlay</p>
+        <button type="button" id="assign-overlay-back-btn" class="btn btn-back">Back</button>
       </div>
     </div>
+  </div>
 
-    <div class="container assign-overlay hidden">
-      <div class="row">
-        <div class="col-sm-12">
-          <p>assign-overlay</p>
-          <button type="button" id="assign-overlay-back-btn" class="btn btn-back">Back</button>
-        </div>
+  <div class="container edit-page hidden">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3>Device Name</h3>
+        <table class="table">
+          <tr>
+            <td>Device Type:</td>
+            <td>
+              <input type="text" name="" value="">
+            </td>
+          </tr>
+          <tr>
+            <td>OS Type:</td>
+            <td>
+              <input type="text" name="" value="">
+            </td>
+          </tr>
+          <tr>
+            <td>RAM:</td>
+            <td>
+              <input type="text" name="" value="">
+            </td>
+          </tr>
+        </table>
+        <button type="button" id="edit-page-save-btn" class="btn">Save</button>
+        <button type="button" id="edit-page-back-btn" class="btn btn-back">Back</button>
       </div>
     </div>
+  </div>
 
-    <div class="container edit-page hidden">
-      <div class="row">
-        <div class="col-sm-12">
-          <h3>Device Name</h3>
-          <table class="table">
-            <tr>
-              <td>Device Type:</td>
-              <td> <input type="text" name="" value=""> </td>
-            </tr>
-            <tr>
-              <td>OS Type:</td>
-              <td><input type="text" name="" value=""> </td>
-            </tr>
-            <tr>
-              <td>RAM:</td>
-              <td><input type="text" name="" value=""> </td>
-            </tr>
-          </table>
-          <button type="button"  id="edit-page-back-btn" class="btn btn-back">Back</button>
-        </div>
-      </div>
-    </div>
-    <!-- Custom JavaScript -->
-    <script type="text/javascript" src="Scripts/Script.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+  <!-- Custom JavaScript -->
+  <script type="text/javascript" src="Scripts/Script.js"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

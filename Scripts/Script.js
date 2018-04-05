@@ -41,7 +41,6 @@ document.querySelector("#other-btn").addEventListener("click", () => {
 
 // landing page
 clickButton("#search-btn", ".landing-page", ".display-page");
-
 clickButton("#add-device-btn", ".landing-page", ".add-device-page");
 
 // add device page
@@ -60,4 +59,5 @@ clickButton("#info-page-back-btn", ".info-page", ".display-page");
 clickButton("#assign-overlay-back-btn", ".assign-overlay", ".display-page");
 
 // edit page
+clickButton("#edit-page-save-btn", ".edit-page", ".info-page");
 clickButton("#edit-page-back-btn", ".edit-page", ".info-page");
