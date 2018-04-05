@@ -1,4 +1,8 @@
-// $('button').prop('disabled', true);
+// //Only dusplaying the os versions that are relevent, doesn't work yet...
+// document.querySelector("#ios-btn").addEventListener("click", () => {
+//   console.log("hi")
+//   $(".ios-os").prop('disabled', true);
+// })
 
 // transition button logic
 function clickButton(id, from, to) {
