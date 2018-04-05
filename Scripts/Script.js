@@ -44,6 +44,7 @@ clickButton("#search-btn", ".landing-page", ".display-page");
 clickButton("#add-device-btn", ".landing-page", ".add-device-page");
 
 // add device page
+clickButton("#add-device-page-save-btn", ".add-device-page", ".landing-page");
 clickButton("#add-device-page-back-btn", ".add-device-page", ".landing-page");
 
 // display page
