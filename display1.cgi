@@ -252,9 +252,6 @@ def htmlTail():
     print("""</body>
           </html>""")
 
-def button():
-  print("<a href='/admin'>back</a>")
-
 #select all user table
 def selectPeopleDB(db,cursor):
     sql = "select * from users"
@@ -284,35 +281,41 @@ def selectOs(db,cursor):
       cursor.execute("""SELECT * from devices WHERE os_type = '{0}' AND grade = '{1}'""".format(os,dgrade))
   elif dgrade == 'None':
       cursor.execute("""SELECT * from devices WHERE os_type = '{0}' AND os_version LIKE '{1}'""".format(os,os_ver))
+  elif dgrade == 'None' and os_ver == 'None' and os == 'None':
+      cursor.execute("""SELECT * from devices""")
   Device = cursor.fetchall()
-  print("<table border='1'>")
-  print("<tr>")
-  print("<th>Name</th>")
-  print("<th>OS Type</th>")
-  print("<th>Type</th>")
-  print("<th>OS Version</th>")
-  print("<th>RAM</th>")
-  print("<th>CPU</th>")
-  print("<th>Bit</th>")
-  print("<th>Screen Resolution</th>")
-  print("<th>Grade</th>")
-  print("<th>UUID</th>")
-  print("</tr>")
-  for each in Device:
-    print("<tr>")
-    print("<td>{0}</td>".format(each[0]))
-    print("<td>{0}</td>".format(each[1]))
-    print("<td>{0}</td>".format(each[2]))
-    print("<td>{0}</td>".format(each[3]))
-    print("<td>{0}</td>".format(each[4]))
-    print("<td>{0}</td>".format(each[5]))
-    print("<td>{0}</td>".format(each[6]))
-    print("<td>{0}</td>".format(each[7]))
-    print("<td>{0}</td>".format(each[8]))
-    print("<td>{0}</td>".format(each[9]))
-    print("</tr>")
-  print("</table>")
-  print(dgrade)
+  if os != 'None':
+      print("<table border='1'>")
+      print("<tr>")
+      print("<th>Name</th>")
+      print("<th>OS Type</th>")
+      print("<th>Type</th>")
+      print("<th>OS Version</th>")
+      print("<th>RAM</th>")
+      print("<th>CPU</th>")
+      print("<th>Bit</th>")
+      print("<th>Screen Resolution</th>")
+      print("<th>Grade</th>")
+      print("<th>UUID</th>")
+      print("<th>Assigned to:</th>")
+      print("<th><input type='text' form='form1'></th>")
+      print("</tr>")
+      for each in Device:
+        print("<tr>")
+        print("<td>{0}</td>".format(each[0]))
+        print("<td>{0}</td>".format(each[1]))
+        print("<td>{0}</td>".format(each[2]))
+        print("<td>{0}</td>".format(each[3]))
+        print("<td>{0}</td>".format(each[4]))
+        print("<td>{0}</td>".format(each[5]))
+        print("<td>{0}</td>".format(each[6]))
+        print("<td>{0}</td>".format(each[7]))
+        print("<td>{0}</td>".format(each[8]))
+        print("<td>{0}</td>".format(each[9]))
+        print("<td>{0}</td>".format(each[10]))
+        print("<td><form action='add_record.cgi' method='post' name='assign' id='form1'><input type='submit' value='assign'></form></th>")
+        print("</tr>")
+      print("</table>")
  
 
 #display all user table
@@ -366,7 +369,6 @@ if __name__ == "__main__":
     htmlTop()
     selectOs('device_database',cur)
     cur.close()
-    button()
     htmlTail()
   except:
     cgi.print_exception()
