@@ -316,7 +316,7 @@ def selectOs(db,cursor):
         print("<td><form action='add_record.cgi' method='post' name='assign' id='form1'><input type='submit' value='assign'></form></th>")
         print("</tr>")
       print("</table>")
- 
+
 
 #display all user table
 def displayPeople(people):
@@ -362,7 +362,7 @@ def displayDevices(devices):
     print("</tr>")
   print("</table>")
 
-  
+
 # main Program
 if __name__ == "__main__":
   try:
