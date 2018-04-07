@@ -1,4 +1,4 @@
-#!C:\Users\carld\AppData\Local\Programs\Python\Python36\python.exe
+#!C:\Users\ielemia\AppData\Local\Programs\Python\Python36\python.exe
 
 import cgi
 
@@ -93,5 +93,3 @@ if __name__ == "__main__":
     htmlTail()
   except:
     cgi.print_exception()
-
-
