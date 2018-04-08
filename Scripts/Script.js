@@ -57,6 +57,7 @@ clickButton("#info-page-edit-btn", ".info-page", ".edit-page");
 clickButton("#info-page-back-btn", ".info-page", ".display-page");
 
 // assign overlay
+clickButton("#assign-overlay-save-btn", ".assign-overlay", ".display-page");
 clickButton("#assign-overlay-back-btn", ".assign-overlay", ".display-page");
 
 // edit page
