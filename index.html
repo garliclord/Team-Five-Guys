@@ -17,14 +17,15 @@
   <div class="container landing-page">
     <!-- Operating system button group -->
     <div class="row">
+	<form action="display1.cgi" method="post">
       <div class="col-sm-12">
         <h2>Device Operating System: </h2>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary" id="ios-btn">
-            <input type="radio" name="options" autocomplete="off"> iOS
+            <input type="radio" name="os" value="ios" autocomplete="off"> iOS
           </label>
           <label class="btn btn-secondary" id="android-btn">
-            <input type="radio" name="options" autocomplete="off"> Android
+            <input type="radio" name="os" value="android" autocomplete="off"> Android
           </label>
           <label class="btn btn-secondary" id="other-btn">
             <input type="radio" name="options" autocomplete="off"> Other
@@ -39,25 +40,25 @@
         <h2>OS Version</h2>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary android-os hidden">
-            <input type="checkbox" name="options" id="os4" autocomplete="off"> 4
+            <input type="checkbox" name="os_ver" value="4%" id="os4" autocomplete="off"> 4
           </label>
           <label class="btn btn-secondary android-os hidden">
-            <input type="checkbox" name="options" id="os5" autocomplete="off"> 5
+            <input type="checkbox" name="os_ver" value="5%" id="os5" autocomplete="off"> 5
           </label>
           <label class="btn btn-secondary android-os hidden">
-            <input type="checkbox" name="options" id="os6" autocomplete="off"> 6
+            <input type="checkbox" name="os_ver" value="6%" id="os6" autocomplete="off"> 6
           </label>
           <label class="btn btn-secondary android-os ios-os hidden">
-            <input type="checkbox" name="options" id="os7" autocomplete="off"> 7
+            <input type="checkbox" name="os_ver" value="7%" id="os7" autocomplete="off"> 7
           </label>
           <label class="btn btn-secondary ios-os hidden">
-            <input type="checkbox" name="options" id="os8" autocomplete="off"> 8
+            <input type="checkbox" name="os_ver" value="8%" id="os8" autocomplete="off"> 8
           </label>
           <label class="btn btn-secondary ios-os hidden">
-            <input type="checkbox" name="options" id="os9" autocomplete="off"> 9
+            <input type="checkbox" name="os_ver" value="9%" id="os9" autocomplete="off"> 9
           </label>
           <label class="btn btn-secondary ios-os hidden">
-            <input type="checkbox" name="options" id="os10" autocomplete="off"> 10
+            <input type="checkbox" name="os_ver" value="10%" id="os10" autocomplete="off"> 10
           </label>
         </div>
       </div>
@@ -69,16 +70,16 @@
         <h2>Performance</h2>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="obsolete" autocomplete="off"> Obsolete
+            <input type="checkbox" name="dgrade" value="obsolete" id="obsolete" autocomplete="off"> Obsolete
           </label>
           <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="low" autocomplete="off"> Low
+            <input type="checkbox" name="dgrade" value="low" id="low" autocomplete="off"> Low
           </label>
           <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="medium" autocomplete="off"> Medium
+            <input type="checkbox" name="dgrade" value="medium" id="medium" autocomplete="off"> Medium
           </label>
           <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="high" autocomplete="off"> High
+            <input type="checkbox" name="dgrade" value="high" id="high" autocomplete="off"> High
           </label>
         </div>
       </div>
@@ -87,8 +88,9 @@
     <!-- Search and Add buttons -->
     <div class="row">
       <div class="col-sm-12 add-search-btns">
-        <button id="search-btn" type="button" name="button" class="btn">Search</button>
+        <button id="search-btn" type="submit" name="search" value="search" class="btn">Search</button>
         <button id="add-device-btn" type="button" name="button" class="btn">Add New</button>
+		</form>
       </div>
     </div>
   </div>
