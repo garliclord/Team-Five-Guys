@@ -13,21 +13,24 @@
 </head>
 
 <body>
-
+  <form>
   <div class="container landing-page">
     <!-- Operating system button group -->
     <div class="row">
       <div class="col-sm-12">
         <h2>Device Operating System: </h2>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
+          <label class="btn btn-secondary active" id="all-btn">
+            <input type="radio" name="os" value="all" autocomplete="off" checked> All
+          </label>
           <label class="btn btn-secondary" id="ios-btn">
-            <input type="radio" name="options" autocomplete="off"> iOS
+            <input type="radio" name="os" value="ios" autocomplete="off"> iOS
           </label>
           <label class="btn btn-secondary" id="android-btn">
-            <input type="radio" name="options" autocomplete="off"> Android
+            <input type="radio" name="os" value="android" autocomplete="off"> Android
           </label>
           <label class="btn btn-secondary" id="other-btn">
-            <input type="radio" name="options" autocomplete="off"> Other
+            <input type="radio" name="os" value="other" autocomplete="off"> Other
           </label>
         </div>
       </div>
@@ -38,26 +41,29 @@
       <div class="col-sm-12">
         <h2>OS Version</h2>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary android-os hidden">
-            <input type="checkbox" name="options" id="os4" autocomplete="off"> 4
+          <label class="btn btn-secondary active" id="os-all-btn">
+            <input type="checkbox" name="os-ver" value="all" id="os-all" autocomplete="off" checked> All
           </label>
-          <label class="btn btn-secondary android-os hidden">
-            <input type="checkbox" name="options" id="os5" autocomplete="off"> 5
+          <label class="btn btn-secondary android-os hidden os-non-all">
+            <input type="checkbox" name="os-ver" value="4" id="os-4" autocomplete="off"> 4
           </label>
-          <label class="btn btn-secondary android-os hidden">
-            <input type="checkbox" name="options" id="os6" autocomplete="off"> 6
+          <label class="btn btn-secondary android-os hidden os-non-all">
+            <input type="checkbox" name="os-ver" value="5" id="os-5" autocomplete="off"> 5
           </label>
-          <label class="btn btn-secondary android-os ios-os hidden">
-            <input type="checkbox" name="options" id="os7" autocomplete="off"> 7
+          <label class="btn btn-secondary android-os hidden os-non-all">
+            <input type="checkbox" name="os-ver" value="6" id="os-6" autocomplete="off"> 6
           </label>
-          <label class="btn btn-secondary ios-os hidden">
-            <input type="checkbox" name="options" id="os8" autocomplete="off"> 8
+          <label class="btn btn-secondary android-os ios-os hidden os-non-all">
+            <input type="checkbox" name="os-ver" value="7" id="os-7" autocomplete="off"> 7
           </label>
-          <label class="btn btn-secondary ios-os hidden">
-            <input type="checkbox" name="options" id="os9" autocomplete="off"> 9
+          <label class="btn btn-secondary ios-os hidden os-non-all">
+            <input type="checkbox" name="os-ver" value="8" id="os-8" autocomplete="off"> 8
           </label>
-          <label class="btn btn-secondary ios-os hidden">
-            <input type="checkbox" name="options" id="os10" autocomplete="off"> 10
+          <label class="btn btn-secondary ios-os hidden os-non-all">
+            <input type="checkbox" name="os-ver" value="9" id="os-9" autocomplete="off"> 9
+          </label>
+          <label class="btn btn-secondary ios-os hidden os-non-all">
+            <input type="checkbox" name="os-ver" value="10" id="os-10" autocomplete="off"> 10
           </label>
         </div>
       </div>
@@ -68,17 +74,20 @@
       <div class="col-sm-12">
         <h2>Performance</h2>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
-          <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="obsolete" autocomplete="off"> Obsolete
+          <label class="btn btn-secondary active" id="dgrade-all-btn">
+            <input type="checkbox" name="dgrade" value="all" id="dgrade-all" autocomplete="off" checked> All
           </label>
-          <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="low" autocomplete="off"> Low
+          <label class="btn btn-secondary dgrade-non-all">
+            <input type="checkbox" name="dgrade" value="obsolete" id="dgrade-obsolete" autocomplete="off"> Obsolete
           </label>
-          <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="medium" autocomplete="off"> Medium
+          <label class="btn btn-secondary dgrade-non-all">
+            <input type="checkbox" name="dgrade" value="low" id="dgrade-low" autocomplete="off"> Low
           </label>
-          <label class="btn btn-secondary">
-            <input type="checkbox" name="options" id="high" autocomplete="off"> High
+          <label class="btn btn-secondary dgrade-non-all">
+            <input type="checkbox" name="dgrade" value="medium" id="dgrade-medium" autocomplete="off"> Medium
+          </label>
+          <label class="btn btn-secondary dgrade-non-all">
+            <input type="checkbox" name="dgrade" value="high" id="dgrade-high" autocomplete="off"> High
           </label>
         </div>
       </div>
@@ -92,135 +101,10 @@
       </div>
     </div>
   </div>
+</form>
 
-  <div class="container add-device-page hidden">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>Add Device</h3>
-        <table class="table">
-          <tr>
-            <td>Device Type:</td>
-            <td><input type="text" name="" value=""> </td>
-          </tr>
-          <tr>
-            <td>OS Type:</td>
-            <td><input type="text" name="" value=""> </td>
-          </tr>
-          <tr>
-            <td>RAM:</td>
-            <td><input type="text" name="" value=""> </td>
-          </tr>
-        </table>
-        <button type="button" id="add-device-page-save-btn" class="btn">Save</button>
-        <button type="button" id="add-device-page-back-btn" class="btn btn-back">Back</button>
-      </div>
-    </div>
-  </div>
 
-  <div class="container display-page hidden">
-    <div class="row">
-      <div class="col-sm-12">
-        <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">Device Name</th>
-              <th scope="col">User</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">iPhone X
-                <button type="button" id="info-btn" class="btn">Info</button>
-              </th>
-              <td>Dave
-                <button type="button" id="assign-btn" class="btn btn-assign">Assign</button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">iPhone 8
-                <button type="button" id="info-btn1" class="btn">Info</button>
-              </th>
-              <td>Bryce
-                <button type="button" id="assign-btn1" class="btn btn-assign">Assign</button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">iPhone 7
-                <button type="button" id="info-btn2" class="btn">Info</button>
-              </th>
-              <td>Bob
-                <button type="button" id="assign-btn2" class="btn btn-assign">Assign</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <button type="button" id="display-page-back-btn" class="btn btn-back">Back</button>
-      </div>
-    </div>
-  </div>
 
-  <div class="container info-page hidden">
-    <div class="row">
-      <div class="col-sm-12 info-page">
-        <h3>Device Name</h3>
-        <table class="table">
-          <tr>
-            <td>Device Type:</td>
-            <td>iPhone 7</td>
-          </tr>
-          <tr>
-            <td>OS Type:</td>
-            <td>iOS</td>
-          </tr>
-          <tr>
-            <td>RAM</td>
-            <td>4G</td>
-          </tr>
-        </table>
-        <button type="button" id="info-page-edit-btn" class="btn">Edit</button>
-        <button type="button" id="info-page-back-btn" class="btn btn-back">Back</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="container assign-overlay hidden">
-    <div class="row">
-      <div class="col-sm-12">
-        <p>assign-overlay</p>
-        <button type="button" id="assign-overlay-back-btn" class="btn btn-back">Back</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="container edit-page hidden">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3>Device Name</h3>
-        <table class="table">
-          <tr>
-            <td>Device Type:</td>
-            <td>
-              <input type="text" name="" value="">
-            </td>
-          </tr>
-          <tr>
-            <td>OS Type:</td>
-            <td>
-              <input type="text" name="" value="">
-            </td>
-          </tr>
-          <tr>
-            <td>RAM:</td>
-            <td>
-              <input type="text" name="" value="">
-            </td>
-          </tr>
-        </table>
-        <button type="button" id="edit-page-save-btn" class="btn">Save</button>
-        <button type="button" id="edit-page-back-btn" class="btn btn-back">Back</button>
-      </div>
-    </div>
-  </div>
 
   <!-- Custom JavaScript -->
   <script type="text/javascript" src="Scripts/Script.js"></script>
