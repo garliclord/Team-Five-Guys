@@ -1,3 +1,23 @@
+function openNav() {
+  document.getElementById("myNav").style.display = "block";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.display = "none";
+}
+
+// document.querySelector("#myNav").addEventListener("click", () => {
+//   document.querySelector("#myNav").classList.toggle("hidden");
+// });
+
+// document.querySelector("#overlay-btn").addEventListener("click", () => {
+//   document.querySelector("#myNav").classList.toggle("hidden");
+// });
+
+// document.querySelector("#close-btn").addEventListener("click", () => {
+//   document.querySelector("#myNav").classList.toggle("hidden");
+// });
+
 // To be used to hide the os buttons and reset the active property
 function hide(id) {
   document.querySelectorAll(id).forEach((element) => {
@@ -38,27 +58,3 @@ document.querySelector("#other-btn").addEventListener("click", () => {
  hide(".ios-os");
  hide(".android-os");
 });
-
-// landing page
-clickButton("#search-btn", ".landing-page", ".display-page");
-clickButton("#add-device-btn", ".landing-page", ".add-device-page");
-
-// add device page
-clickButton("#add-device-page-save-btn", ".add-device-page", ".landing-page");
-clickButton("#add-device-page-back-btn", ".add-device-page", ".landing-page");
-
-// display page
-clickButton("#display-page-back-btn", ".display-page", ".landing-page");
-clickButton("#info-btn", ".display-page", ".info-page");
-clickButton("#assign-btn", ".display-page", ".assign-overlay");
-
-// info page
-clickButton("#info-page-edit-btn", ".info-page", ".edit-page");
-clickButton("#info-page-back-btn", ".info-page", ".display-page");
-
-// assign overlay
-clickButton("#assign-overlay-back-btn", ".assign-overlay", ".display-page");
-
-// edit page
-clickButton("#edit-page-save-btn", ".edit-page", ".info-page");
-clickButton("#edit-page-back-btn", ".edit-page", ".info-page");
