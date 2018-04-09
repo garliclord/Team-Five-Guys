@@ -1,9 +1,9 @@
-function openNav() {
-  document.getElementById("myNav").style.display = "block";
+function openUserNav() {
+  document.getElementById("user-overlay").style.display = "block";
 }
 
-function closeNav() {
-  document.getElementById("myNav").style.display = "none";
+function closeUserNav() {
+  document.getElementById("user-overlay").style.display = "none";
 }
 
 // document.querySelector("#myNav").addEventListener("click", () => {

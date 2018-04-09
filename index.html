@@ -99,20 +99,21 @@
         <button id="search-btn" type="button" name="button" class="btn">Search</button>
       </div>
     </div>
-    
+
     <!-- overlay -->
-    <div id="myNav" class="overlay">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div id="user-overlay" class="overlay">
       <div class="overlay-content">
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <label>Please enter your name: </label>
+      <input type="text" name="" value="">
+        <button id="confirm-btn" type="button" name="button" class="btn btn-success">Confirm</button>
+        <button id="cancel-btn" type="button" name="button" class="btn" onclick="closeUserNav()">Cancel</button>
       </div>
     </div>
-    
+
     <!-- overlay button -->
     <div class="row">
       <div class="col-sm-12">
-        <button id="overlay-btn" type="button" name="button" class="btn" onclick="openNav()">Overlay</button>
+        <button id="overlay-btn" type="button" name="button" class="btn" onclick="openUserNav()">Overlay</button>
       </div>
     </div>
 

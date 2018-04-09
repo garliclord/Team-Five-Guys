@@ -26,24 +26,13 @@
   margin-top: 30px;
 }
 
-.overlay a {
+.overlay label {
   padding: 8px;
   text-decoration: none;
   font-size: 36px;
   color: #818181;
   display: block;
   transition: 0.3s;
-}
-
-.overlay a:hover, .overlay a:focus {
-  color: #f1f1f1;
-}
-
-.overlay .closebtn {
-  position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
 }
 
 @media screen and (max-height: 450px) {
