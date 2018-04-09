@@ -72,11 +72,7 @@ foreach (explode('&', $queryS) as $pair) {
  {
 	 $sql="SELECT * FROM devices WHERE os_type != 'IOS' and os_type != 'Android'";
  }
- else
- {
-	 $sql = "SELECT * FROM devices";
-	 $whereConditionOsVer = ' where 1 ';
- }
+ 
  if($whereConditionOsVer != '')
  	$sql .= $whereConditionOsVer;
  if($whereConditionPer != '')
@@ -225,7 +221,7 @@ function check()
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
        <form >
 	  <label class="btn btn-secondary" id="all" onclick="showAll()">
-            <input type="radio" name="os" checked="checked" value="all" autocomplete="off"> All
+            <input type="radio" name="os" value="all" value="all" autocomplete="off"> All
           </label>
 	  <label class="btn btn-secondary" id="ios" onclick="showiOSVersion()">
             <input type="radio" name="os" value="ios" autocomplete="off"> iOS
