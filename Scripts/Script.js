@@ -1,9 +1,9 @@
-// overlay buttons
-document.querySelector("#overlay-btn").addEventListener("click", () => {
+// overlay open and close
+document.querySelector("#open-overlay").addEventListener("click", () => {
   document.querySelector("#user-overlay").classList.remove("hidden");
 });
 
-document.querySelector("#cancel-btn").addEventListener("click", () => {
+document.querySelector("#close-overlay").addEventListener("click", () => {
   document.querySelector("#user-overlay").classList.add("hidden");
 });
 

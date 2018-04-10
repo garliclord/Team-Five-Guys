@@ -106,7 +106,7 @@
         <label>Please enter your name: </label>
         <input type="text" name="" value="">
         <button id="confirm-btn" type="button" name="button" class="btn btn-success">Confirm</button>
-        <button id="cancel-btn" type="button" name="button" class="btn">Cancel</button>
+        <button id="close-overlay" type="button" name="button" class="btn">Cancel</button>
 
         <div class="card bg-light mb-3" style="max-width: 18rem;">
           <div class="card-header">Header</div>
@@ -121,7 +121,7 @@
     <!-- overlay button -->
     <div class="row">
       <div class="col-sm-12">
-        <button id="overlay-btn" type="button" name="button" class="btn">Overlay</button>
+        <button id="open-overlay" type="button" name="button" class="btn">Overlay</button>
       </div>
     </div>
 
@@ -132,9 +132,12 @@
           <thead>
             <tr>
               <th scope="col">Device Name <i class="fas fa-sort"></i>
+                
+                <!-- add device button -->
                 <button id="add-device-btn" type="button" name="button" class="btn">Add New</button>
+
               </th>
-              <th scope="col"> <a href="#">Assigned to <i class="fas fa-sort"></i></a> </th>
+              <th scope="col">Assigned to <a href="#"><i class="fas fa-sort"></i></a> </th>
               <th scope="col">Type <i class="fas fa-sort"></i></th>
               <th scope="col">Grade <i class="fas fa-sort"></i></th>
               <th scope="col">OS Type <i class="fas fa-sort"></i></th>
