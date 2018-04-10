@@ -1,22 +1,14 @@
 <?php include 'connection.php';?>
 <?php 
   
-# Region Assign User: This is to show whether or not device assigned successfully.
-  if(isset($_GET["success"]) )
-  {
-    if($_GET["success"] == 'true')
+# Region message to user: This is to show whether or not function was successful.
+    
+    if(isset($_GET["message"]))
     {
-     echo '<div class="alert alert-success">Device has been assigned to user successfully !!!</div>';
-    }
-    else
-    {
-    echo '<div class="alert alert-danger">Unexpected error in assigning user, please try again !!!</div>';
+     echo '<div class="alert alert-success">'.$_GET["message"].'</div>';
     }
   
-  }
-  ## End Region Assign User
-  
-  # This function returns devices based on control selection.
+ # This function returns devices based on control selection.
  function fill_devices($con)  
  {  
      $whereConditionOsVer='';
@@ -96,10 +88,10 @@
     if($whereConditionOsVer != '')
           $sql .= $whereConditionOsVer . ')';
   
-  
-  
      if($whereConditionPer != '')
     	   $sql .= $whereConditionPer .')';
+	   
+	   $sql .= ' order by name';
   # to be removed from final version
   	echo $sql;
   	
@@ -112,6 +104,7 @@
 	 $output .= '<table class="table" id="deviceTbl">
         <tr>
             <th>Device Name</th>
+			<th>Assigned to</th>
             <th>OS Type</th>
             <th>Type</th>
             <th>OS Version</th>
@@ -121,13 +114,14 @@
             <th>Screen Resolution</th>
             <th>Grade</th>
             <th>UUID</th>
-            <th>Assigned to</th>
+            
         </tr>';
 		
   	 #Fetch result in while
         while($row = mysqli_fetch_array($result))  
           {  
               $id = $row['device_id'];
+			  $assigned_to = $row['assigned_to'];
               $name = $row['name'];
               $os_type = $row['os_type'];
               $type = $row['type'];
@@ -138,11 +132,12 @@
               $screen_resolution = $row['screen_resolution'];
               $grade = $row['grade'];
               $uuid = $row['uuid'];
-              $assigned_to = $row['assigned_to'];
+              
               
               $output .= '<tr>';
               
-              $output .=  '<td ><a href=assignUser.php?deviceid='.$id.'>'.$name.'</a></td>';
+              $output .=  '<td ><a data-toggle="tooltip" title="Click to edit this device!" href=add_devices.php?deviceid='.$id.'>'.$name.'</a></td>';
+			  $output .=  '<td><a data-toggle="tooltip" title="Click to Assign User!" href=AssignUser.php?deviceid='.$id.'&name='.$name.'>'. $assigned_to. '</a></td>';
               $output .=  '<td>' . $os_type . '</td>';
               $output .=  '<td>' . $type . '</td>';
               $output .=  '<td>' . $os_version . '</td>';
@@ -152,7 +147,6 @@
               $output .=  '<td>' . $screen_resolution . '</td>';
               $output .=  '<td>' . $grade . '</td>';
               $output .=  '<td >' . $uuid . '</td>';
-              $output .=  '<td>' . $assigned_to . '</td>';
               $output .= '</tr>';
               
           }  
@@ -162,3 +156,9 @@
  }
 
  ?>  
+ 
+ <script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>

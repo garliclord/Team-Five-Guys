@@ -149,7 +149,6 @@
         <?php echo fill_devices($con); ?>
 		
         </form>
-		<button id="add-device-btn" type="submit" name="button" class="btn"  onclick='addDevices()'>Add New</button>
-		<button id="add-user-btn" type="submit" name="button" class="btn" onclick='addUser()'>Add User</button>
+		
 </body>
 </html>
