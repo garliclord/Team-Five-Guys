@@ -1,12 +1,3 @@
-// overlay open and close
-document.querySelector("#open-overlay").addEventListener("click", () => {
-  document.querySelector("#user-overlay").classList.remove("hidden");
-});
-
-document.querySelector("#close-overlay").addEventListener("click", () => {
-  document.querySelector("#user-overlay").classList.add("hidden");
-});
-
 // To be used to hide the os buttons and reset the active property
 function hide(id) {
   document.querySelectorAll(id).forEach((element) => {

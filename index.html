@@ -18,7 +18,7 @@
     <!-- Operating system button group -->
     <div class="row">
       <div class="col-sm-12">
-        <h2>Device Operating System: </h2>
+        <h2>Operating System </h2>
         <div class="btn-group btn-group-toggle" data-toggle="buttons">
           <label class="btn btn-secondary active" id="all-btn">
             <input type="radio" name="os" value="all" autocomplete="off" checked> All
@@ -93,56 +93,232 @@
       </div>
     </div>
 
-    <!-- Search and Add buttons -->
+    <!-- Search button -->
     <div class="row">
-      <div class="col-sm-12 add-search-btns">
-        <button id="search-btn" type="button" name="button" class="btn">Search</button>
+      <div class="col-sm-12">
+        <button id="search-btn" type="button" class="btn btn-primary">Search</button>
       </div>
     </div>
 
-    <!-- overlay -->
-    <div id="user-overlay" class="overlay hidden">
-      <div class="overlay-content">
-        <label>Please enter your name: </label>
-        <input type="text" name="" value="">
-        <button id="confirm-btn" type="button" name="button" class="btn btn-success">Confirm</button>
-        <button id="close-overlay" type="button" name="button" class="btn">Cancel</button>
-
-        <div class="card bg-light mb-3" style="max-width: 18rem;">
-          <div class="card-header">Header</div>
-          <div class="card-body">
-            <h5 class="card-title">Light card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <!-- Add device button -->    
+    <button type="button" class="btn btn-secondary" id="add-device-btn" data-toggle="modal" data-target="#addDeviceModal">
+      Add New Device
+    </button>
+    
+    <!-- Modals (bootstrap overlays) -->
+      <!-- Add device modal -->
+      <div class="modal fade" id="addDeviceModal" tabindex="-1" role="dialog" aria-labelledby="addDeviceModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addDeviceModalLongTitle">New Device</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="deviceNameInput">Device Name</label>
+                  <input type="text" class="form-control" id="deviceNameInput" placeholder="device_name">
+                </div>
+                <div class="form-group">
+                  <label for="assignControlSelect">Assigned to</label>
+                  <select class="form-control" id="assignControlSelect">
+                    <option>Bryce</option>
+                    <option>Dave</option>
+                    <option>Sulbin</option>
+                    <option>Bob</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="typeInput">Type</label>
+                  <input type="text" class="form-control" id="typeInput" placeholder="iPhoneX">
+                </div>
+                <div class="form-group">
+                  <label for="gradeSelect">Grade</label>
+                  <select class="form-control" id="gradeSelect">
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                    <option>Obsolete</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="osSelect">OS</label>
+                  <select class="form-control" id="osSelect">
+                    <option>iOS</option>
+                    <option>Android</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="versionInput">Version</label>
+                  <input type="text" class="form-control" id="versionInput" placeholder="10.1.2">
+                </div>
+                <div class="form-group">
+                  <label for="ramInput">RAM</label>
+                  <input type="text" class="form-control" id="ramInput" placeholder="4GB">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">CPU</label>
+                  <input type="text" class="form-control" id="cpuInput" placeholder="4Ghz">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">Bit</label>
+                  <input type="text" class="form-control" id="bitInput" placeholder="64">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">Screen Resolution</label>
+                  <input type="text" class="form-control" id="screenInput" placeholder="1080p">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">UUID</label>
+                  <input type="text" class="form-control" id="uuidInput" placeholder="223424234">
+                </div>
+                <div class="form-group">
+                  <label for="notesTextarea">Notes</label>
+                  <textarea class="form-control" id="notesTextarea" rows="2"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- overlay button -->
-    <div class="row">
-      <div class="col-sm-12">
-        <button id="open-overlay" type="button" name="button" class="btn">Overlay</button>
+      <!-- Edit device modal -->
+      <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editModalLongTitle">Edit Device Properties</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="deviceNameInput">Device Name</label>
+                  <input type="text" class="form-control" id="deviceNameInput" placeholder="device_name">
+                </div>
+                <div class="form-group">
+                  <label for="assignControlSelect">Assigned to</label>
+                  <select class="form-control" id="assignControlSelect">
+                    <option>Bryce</option>
+                    <option>Dave</option>
+                    <option>Sulbin</option>
+                    <option>Bob</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="typeInput">Type</label>
+                  <input type="text" class="form-control" id="typeInput" placeholder="iPhoneX">
+                </div>
+                <div class="form-group">
+                  <label for="gradeSelect">Grade</label>
+                  <select class="form-control" id="gradeSelect">
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Low</option>
+                    <option>Obsolete</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="osSelect">OS</label>
+                  <select class="form-control" id="osSelect">
+                    <option>iOS</option>
+                    <option>Android</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="versionInput">Version</label>
+                  <input type="text" class="form-control" id="versionInput" placeholder="10.1.2">
+                </div>
+                <div class="form-group">
+                  <label for="ramInput">RAM</label>
+                  <input type="text" class="form-control" id="ramInput" placeholder="4GB">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">CPU</label>
+                  <input type="text" class="form-control" id="cpuInput" placeholder="4Ghz">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">Bit</label>
+                  <input type="text" class="form-control" id="bitInput" placeholder="64">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">Screen Resolution</label>
+                  <input type="text" class="form-control" id="screenInput" placeholder="1080p">
+                </div>
+                <div class="form-group">
+                  <label for="deviceNameInput">UUID</label>
+                  <input type="text" class="form-control" id="uuidInput" placeholder="223424234">
+                </div>
+                <div class="form-group">
+                  <label for="notesTextarea">Notes</label>
+                  <textarea class="form-control" id="notesTextarea" rows="2"></textarea>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <!-- table -->
+      <!-- Assign modal -->
+      <div class="modal fade" id="assignModal" tabindex="-1" role="dialog" aria-labelledby="assignModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="assignModalLongTitle">Assign Device</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                <div class="form-group">
+                  <label for="assignControlSelect">Assign Device to</label>
+                  <select class="form-control" id="assignControlSelect">
+                    <option>Bryce</option>
+                    <option>Dave</option>
+                    <option>Sulbin</option>
+                    <option>Bob</option>
+                    <option>New User??</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- Table -->
     <div class="row">
       <div class="col-sm-12">
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Device Name <i class="fas fa-sort"></i>
-                
-                <!-- add device button -->
-                <button id="add-device-btn" type="button" name="button" class="btn">Add New</button>
-
-              </th>
-              <th scope="col">Assigned to <a href="#"><i class="fas fa-sort"></i></a> </th>
+              <th scope="col">Device Name <i class="fas fa-sort"></i></th>
+              <th scope="col">Assigned User <a href="#"><i class="fas fa-sort"></i></a></th>
               <th scope="col">Type <i class="fas fa-sort"></i></th>
               <th scope="col">Grade <i class="fas fa-sort"></i></th>
-              <th scope="col">OS Type <i class="fas fa-sort"></i></th>
-              <th scope="col">OS Version <i class="fas fa-sort"></i></th>
-              <th scope="col">Ram <i class="fas fa-sort"></i></th>
+              <th scope="col">OS <i class="fas fa-sort"></i></th>
+              <th scope="col">Version <i class="fas fa-sort"></i></th>
+              <th scope="col">RAM <i class="fas fa-sort"></i></th>
               <th scope="col">CPU <i class="fas fa-sort"></i></th>
               <th scope="col">Bit <i class="fas fa-sort"></i></th>
               <th scope="col">Screen Resolution <i class="fas fa-sort"></i></th>
@@ -151,8 +327,12 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row"><a href="#" class="edit-btn">Kratos</a></th>
-              <td><a href="#" class="assign-btn">Bryce</a></td>
+              <!-- Edit device link -->
+              <th scope="row"><a href="#" id="edit-link" data-toggle="modal" data-target="#editModal">Kratos</a></th>
+              
+              <!-- Assign link -->
+              <td><a href="#" id="assign-link" data-toggle="modal" data-target="#assignModal">Bryce</a></td>
+
               <td>iPhoneX</td>
               <td>High</td>
               <td>iOS</td>
@@ -167,6 +347,7 @@
         </table>
       </div>
     </div>
+    
   </div>
   </form>
 
