@@ -14,81 +14,95 @@ echo '<div class="alert alert-danger">Unexpected error in assigning user, please
 }
 
 }
- function fill_devices($con)  
- {  
- $whereConditionOsVer=' ';
- $whereConditionPer=' ';
- $vars = array();
- if(isset($_GET["os_ver"]) || isset($_GET["dgrade"]) || isset($_GET["dgrade"]))
- {
-	 $queryS = $_SERVER['QUERY_STRING'];
-
-$cntOSVer=0;
-$cntper=0;
-foreach (explode('&', $queryS) as $pair) {
-    list($key, $value) = explode('=', $pair);
-    $vars[] = array(urldecode($key), urldecode($value));
-	
-	# where query for multiple Os Versions
-	if($key == 'os_ver')
+function fill_devices($con)   #con calling the connection file
+{  
+	$whereConditionOsVer=' ';
+	$whereConditionPer=' ';
+	$vars = array();
+	$str_os_ver = '';
+	$str_per = '';
+	if(isset($_GET["os_ver"]) || isset($_GET["dgrade"]) || isset($_GET["dgrade"]))
 	{
-		if($cntOSVer == 0)
-		{
-			$whereConditionOsVer .= " and os_version like '".$value."%'";
+		$queryS = $_SERVER['QUERY_STRING'];
+
+		$cntOSVer=0;
+		$cntper=0;
+
+		foreach (explode('&', $queryS) as $pair) {
+			list($key, $value) = explode('=', $pair);
+			$vars[] = array(urldecode($key), urldecode($value));
+			# where query for multiple Os Versions
+			if($key == 'os_ver')
+			{	
+				if($cntOSVer == 0)
+				{
+					$str_os_ver = "(".$value;
+					// $whereConditionOsVer .= " and os_version like '".$value."%'";
+				}
+				else
+				{
+					$str_os_ver .= ",".$value;
+					// $whereConditionOsVer .= "  or os_version like  '" .$value."%'";
+				}
+				
+				$cntOSVer = $cntOSVer+1;
+			}
+			# where query for multiple performances
+			if($key == 'dgrade')
+			{
+				if($cntper == 0)
+				{
+					$str_per = "('".$value."'";
+					// $whereConditionPer=" and grade like '".$value."%'";
+				}
+				else
+				{
+					$str_per .= ",'".$value."'";
+					// $whereConditionPer .= "  or grade like  '" .$value."%'";
+				}
+				
+				$cntper = $cntper+1;
+			}
 		}
-		else
-		{
-		$whereConditionOsVer .= "  or os_version like  '" .$value."%'";
+		if($str_os_ver != '') {
+			$str_os_ver .= ")";
+			$whereConditionOsVer .= " and SUBSTRING_INDEX(os_version, \".\", 1) IN ".$str_os_ver;
 		}
-		
-		$cntOSVer = $cntOSVer+1;
+		if($str_per != '') {
+			$str_per .= ")";
+			$whereConditionPer .= " and grade IN ".$str_per;
+		}
 	}
-	# where query for multiple performances
-	if($key == 'dgrade')
+
+	$sql='';
+	if(isset($_GET["os"]) && ($_GET["os"] == 'ios' || $_GET["os"] == 'android'))
 	{
-		if($cntper == 0)
-		{
-			$whereConditionPer=" and grade like '".$value."%'";
-		}
-		else
-		{
-		$whereConditionPer .= "  or grade like  '" .$value."%'";
-		}
+		  $output = '';  
 		
-		$cntper = $cntper+1;
+		$sql = "SELECT * FROM devices WHERE os_type like '".$_GET["os"]."'";   
+
 	}
-}
- }
-
- $sql='';
- if(isset($_GET["os"]) && ($_GET["os"] == 'ios' || $_GET["os"] == 'android'))
- {
-      $output = '';  
-	
-	$sql = "SELECT * FROM devices WHERE os_type like '".$_GET["os"]."'";   
-
- }
- else if(isset($_GET["os"]) && $_GET["os"] == 'other')
- {
-	 $sql="SELECT * FROM devices WHERE os_type != 'IOS' and os_type != 'Android'";
- }
- else
- {
-	 $sql = "SELECT * FROM devices";
-	 $whereConditionOsVer = ' where 1 ';
- }
- if($whereConditionOsVer != '')
- 	$sql .= $whereConditionOsVer;
- if($whereConditionPer != '')
-	$sql .= $whereConditionPer;
+	else if(isset($_GET["os"]) && $_GET["os"] == 'other')
+	{
+		 $sql="SELECT * FROM devices WHERE os_type != 'IOS' and os_type != 'Android'";
+	}
+	else
+	{
+		$sql = "SELECT * FROM devices";
+		$whereConditionOsVer = ' where 1 ';
+	}
+	if($whereConditionOsVer != '')
+		$sql .= $whereConditionOsVer;
+	if($whereConditionPer != '')
+		$sql .= $whereConditionPer;
 	echo $sql;
 	
 	$result=mysqli_query($con,$sql);
-	 $output ='';
-	 $cnt=1;
-      while($row = mysqli_fetch_array($result))  
-      {  
-	  $id = $row['device_id'];
+	$output ='';
+	$cnt=1;
+    while($row = mysqli_fetch_array($result))  
+	{  
+		$id = $row['device_id'];
 		$name = $row['name'];
 		$os_type = $row['os_type'];
 		$type = $row['type'];
@@ -115,10 +129,10 @@ foreach (explode('&', $queryS) as $pair) {
 		$output .=  '<td >' . $uuid . '</td>';
 		$output .=  '<td>' . $assigned_to . '</td>';
 		$output .= '</tr>';
-		 
-      }  
-      return $output;  
- } 
+	 
+	}  
+    return $output;  
+} 
 #mysqli_close($con); 
  ?>  
 
@@ -180,7 +194,7 @@ $('.username').on("click",function(){
   // To show add devise "Div"
   
   
-  function showDevices() {
+function showDevices() {
 	//document.getElementById("searchDevices").style.display="block";
 }
 function showAddDevice() {
