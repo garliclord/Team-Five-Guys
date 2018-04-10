@@ -1,22 +1,11 @@
-function openUserNav() {
-  document.getElementById("user-overlay").style.display = "block";
-}
+// overlay buttons
+document.querySelector("#overlay-btn").addEventListener("click", () => {
+  document.querySelector("#user-overlay").classList.remove("hidden");
+});
 
-function closeUserNav() {
-  document.getElementById("user-overlay").style.display = "none";
-}
-
-// document.querySelector("#myNav").addEventListener("click", () => {
-//   document.querySelector("#myNav").classList.toggle("hidden");
-// });
-
-// document.querySelector("#overlay-btn").addEventListener("click", () => {
-//   document.querySelector("#myNav").classList.toggle("hidden");
-// });
-
-// document.querySelector("#close-btn").addEventListener("click", () => {
-//   document.querySelector("#myNav").classList.toggle("hidden");
-// });
+document.querySelector("#cancel-btn").addEventListener("click", () => {
+  document.querySelector("#user-overlay").classList.add("hidden");
+});
 
 // To be used to hide the os buttons and reset the active property
 function hide(id) {
