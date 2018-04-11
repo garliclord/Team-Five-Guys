@@ -1,29 +1,26 @@
-<?php include 'ShowDevices.php';?>
+<?php include 'ShowDevices.php';?> 
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Title of the site</title>
+    <title>Cerebral fix device management</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
-
     <style media="screen">
       h2{
         margin-top: 10px;
       }
     </style>
-
+           
 
     <script>
         // Javascript to hide and show os buttons
-        function showAddDevice() {
-            document.getElementById("addDevices").style.display = "block";
-        }
-
+		
+		
         function showAll() {
             document.getElementById("iosVersion").style.display = "none";
             document.getElementById("androidVersion").style.display = "none";
@@ -144,26 +141,18 @@
         <!-- Search and Add buttons -->
         <div class="row">
             <div class="col-sm-12 add-search-btns" style="margin-top:10px;">
-                <button id="search-btn" type="submit" name="button" class="btn btn-primary" onclick='showDevices()'>Search</button>
-
-            </div>
+                <button id="search-btn" type="submit" name="button" class="btn btn-primary" >Search</button>
+				<button type="button" class="btn btn-primary" id="add-device-btn" onclick = "location.href='add_devices.php';">Add New Device</button>
+			</div>
         </div>
+	</div>
     </div>
-    </div>
-    <!-- Custom JavaScript -->
-<script type="text/javascript" src="Scripts/Script.js"></script>
-
-<!-- jQuery first, then Popper.js, then Bootstrap JS-->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-  crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-  crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-  crossorigin="anonymous"></script>
+	<hr>
 
         <?php echo fill_devices($con); ?>
 
         </form>
+		
 
 </body>
 </html>

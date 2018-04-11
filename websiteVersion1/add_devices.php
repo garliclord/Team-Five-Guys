@@ -40,7 +40,7 @@ if (isset($_POST['btnAddDevice']))
 							cpu='".$cpu."',bit='".$bit."',screen_resolution='".$screen."',
 							grade='".$grade."',uuid='".$uuid."'
 							WHERE device_id =" .$hdndeviceId;
-		echo $sqlDevices;
+		#echo $sqlDevices;
 		#Write update Query
 		$queryStatus = "Data updated successfully !!!";
 	}
@@ -50,7 +50,7 @@ if (isset($_POST['btnAddDevice']))
 		# TO insert data in database
 		$sqlDevices = "INSERT INTO devices (name, os_type, type, os_version, ram, cpu, bit, screen_resolution,
 		 grade, uuid, assigned_to) VALUES ('".$device_name."', '".$os_type."', '".$device_type."', '".$os_version."', '".$ram."',
-		'".$cpu."', '".$bit."', '".$screen."', '".$grade."','".$uuid."', 'None')";
+		'".$cpu."', '".$bit."', '".$screen."', '".$grade."','".$uuid."', 'Assign')";
 		
 		$queryStatus = "Data Inserted successfully !!!";
 		
@@ -63,7 +63,7 @@ if (isset($_POST['btnAddDevice']))
 	else
 		{	
 		echo $queryStatus;
-		header(  "refresh:0; url=LandingPage.php?message=".$queryStatus  );
+		header(  "refresh:0; url=index.php?message=".$queryStatus  );
 		}		
 
 }
@@ -72,7 +72,7 @@ if (isset($_POST['btnAddDevice']))
 <!DOCTYPE html>  
 <html>
 <head>
-    <title>Add or update devices</title>
+    <title>Cerebral fix device management</title>
 	 <!-- Required meta tags -->
   <meta charset="utf-8">
   <!-- Bootstrap CSS -->
@@ -133,8 +133,15 @@ if (isset($_POST['btnAddDevice']))
 		  <!-- This hidden field used to send a device id to a variable as on submit btn click page gets reload and it looses query string -->
 		  <input type="hidden" name="hdnDeviceId" value="<?php if(isset($_GET['deviceid'])) echo $_GET['deviceid']; ?>">
          
-		  <button id="btnAddDevice" type="submit" name="btnAddDevice" class="btn" >Submit</button>
-        </table>
+		  
+        <div class="row">
+            <div class="col-sm-12 add-search-btns" style="margin-top:10px;">
+                <button id="btnAddDevice" type="submit" name="btnAddDevice" class="btn btn-primary" >Submit</button>
+		  <button type="button" class="btn btn-primary" id="add-device-btn" onclick = "location.href='INDEX.php';">Cancel</button>
+		</div>
+        </div>
+		
+		</table>
         
      </form> 
 	

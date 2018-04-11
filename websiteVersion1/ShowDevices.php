@@ -91,9 +91,9 @@
      if($whereConditionPer != '')
     	   $sql .= $whereConditionPer .')';
 	   
-	   $sql .= ' order by name';
+	   $sql .= ' order by type';
   # to be removed from final version
-  	echo $sql;
+  	#echo $sql;
   	
 	#Trigger query in DB
   	$result=mysqli_query($con,$sql);
@@ -105,8 +105,8 @@
         <tr>
             <th>Device Name</th>
 			<th>Assigned to</th>
+            <th>Device Type</th>
             <th>OS Type</th>
-            <th>Type</th>
             <th>OS Version</th>
             <th>Ram</th>
             <th>CPU</th>
@@ -123,8 +123,8 @@
               $id = $row['device_id'];
 			  $assigned_to = $row['assigned_to'];
               $name = $row['name'];
-              $os_type = $row['os_type'];
               $type = $row['type'];
+              $os_type = $row['os_type'];
               $os_version = $row['os_version'];
               $ram = $row['ram'];
               $cpu = $row['cpu'];
@@ -138,8 +138,8 @@
               
               $output .=  '<td ><a data-toggle="tooltip" title="Click to edit this device!" href=add_devices.php?deviceid='.$id.'>'.$name.'</a></td>';
 			  $output .=  '<td><a data-toggle="tooltip" title="Click to Assign User!" href=AssignUser.php?deviceid='.$id.'&name='.$name.'>'. $assigned_to. '</a></td>';
-              $output .=  '<td>' . $os_type . '</td>';
               $output .=  '<td>' . $type . '</td>';
+			  $output .=  '<td>' . $os_type . '</td>';
               $output .=  '<td>' . $os_version . '</td>';
               $output .=  '<td>' . $ram . '</td>';
               $output .=  '<td>' . $cpu . '</td>';
