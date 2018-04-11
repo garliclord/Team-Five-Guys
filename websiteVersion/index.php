@@ -10,7 +10,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <style media="screen">
+      h2{
+        margin-top: 10px;
+      }
+    </style>
+
 
     <script>
         // Javascript to hide and show os buttons
@@ -40,15 +46,14 @@
     </script>
 </head>
 <body>
-
-
+<form>
     <div class="container landing-page">
         <!-- Operating system button group -->
         <div class="row">
             <div class="col-sm-12">
-                <h2>Device Operating System: </h2>
+                <h2>Operating System </h2>
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                    <form>
+
                         <label class="btn btn-secondary" id="all" onclick="showAll()">
                             <input type="radio" name="os" value="all" autocomplete="off"> All
                         </label>
@@ -61,7 +66,7 @@
                         <label class="btn btn-secondary" id="other-btn">
                             <input type="radio" name="os" value="other" autocomplete="off" onclick="hideVersion()"> Other
                         </label>
-						
+
                 </div>
             </div>
         </div>
@@ -72,7 +77,7 @@
         <div class="row" id="iosVersion" style="display:none">
             <div class="col-sm-12">
                 <h2>OS Version</h2>
-                <div>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
 
                     <label class="btn btn-secondary android-os ios-os hidden">
                         <input type="checkbox" name="os_ver" value="7" id="os7" autocomplete="off"> 7
@@ -98,7 +103,7 @@
         <div class="row" id="androidVersion" style="display:none">
             <div class="col-sm-12">
                 <h2>OS Version</h2>
-                <div>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-secondary android-os hidden">
                         <input type="checkbox" name="os_ver" value="4" id="os4" autocomplete="off"> 4
                     </label>
@@ -119,7 +124,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h2>Performance</h2>
-                <div>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-secondary">
                         <input type="checkbox" name="dgrade" value="obsolete" id="obsolete" autocomplete="off"> Obsolete
                     </label>
@@ -138,17 +143,27 @@
 
         <!-- Search and Add buttons -->
         <div class="row">
-            <div class="col-sm-12 add-search-btns">
-                <button id="search-btn" type="submit" name="button" class="btn" onclick='showDevices()'>Search</button>
-				
+            <div class="col-sm-12 add-search-btns" style="margin-top:10px;">
+                <button id="search-btn" type="submit" name="button" class="btn btn-primary" onclick='showDevices()'>Search</button>
+
             </div>
         </div>
     </div>
     </div>
+    <!-- Custom JavaScript -->
+<script type="text/javascript" src="Scripts/Script.js"></script>
+
+<!-- jQuery first, then Popper.js, then Bootstrap JS-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+  crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+  crossorigin="anonymous"></script>
 
         <?php echo fill_devices($con); ?>
-		
+
         </form>
-		
+
 </body>
 </html>
