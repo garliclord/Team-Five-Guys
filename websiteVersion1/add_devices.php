@@ -75,24 +75,28 @@ if (isset($_POST['btnAddDevice']))
     <title>Cerebral fix device management</title>
 	 <!-- Required meta tags -->
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/style.css">
     
+	
 
 </head>
 <body>
+	<div class="container-fluid">
     <!-Add buttons -->
     
+	
 	
      
     <form name="form" action="add_devices.php" method="POST">    
      <h1>Add or Update Devices</h1>
-        <table class="table">
+        <table class = "table">
           <tr>
-            <td>Device Name:</td>
-            <td><input type="text" name="device_name" value="<?php if(isset($row['name'])) echo $row['name']; ?>"> </td>
+            <td width="20%" ><h6>Device Name:</h6></td>
+            <td><input type="text" name="device_name" value=" <?php if(isset($row['name'])) echo $row['name']; ?>"><p>*Please do not leave this blank</p></td>
           </tr>
           <tr>
             <td>OS Type:</td>
@@ -135,7 +139,7 @@ if (isset($_POST['btnAddDevice']))
          
 		  
         <div class="row">
-            <div class="col-sm-12 add-search-btns" style="margin-top:10px;">
+            <div class="col-sm-12 add-search-btns" style="margin-bottom:10px;">
                 <button id="btnAddDevice" type="submit" name="btnAddDevice" class="btn btn-primary" >Submit</button>
 		  <button type="button" class="btn btn-primary" id="add-device-btn" onclick = "location.href='INDEX.php';">Cancel</button>
 		</div>
@@ -144,7 +148,7 @@ if (isset($_POST['btnAddDevice']))
 		</table>
         
      </form> 
-	
+	</div>
 </body>
 </html>
 
