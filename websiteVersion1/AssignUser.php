@@ -10,7 +10,7 @@
   	function getUser($con)
    {
         $output = '';
-        $sql = "SELECT * FROM users";
+        $sql = "SELECT * FROM users order by name";
         $result = mysqli_query($con, $sql);       
         while($row = mysqli_fetch_array($result))
         {
@@ -33,12 +33,13 @@
 	  
 	  if($newUser =='' && $selectedUsername == '')
 	  {
-		  header('refresh:0; url=AssignUser.php?deviceid='.$deviceID.'&name='.$deviceName.'&message=Please select user to assign or enter new user.');
+		  #header('refresh:0; url=AssignUser.php?deviceid='.$deviceID.'&name='.$deviceName.'&message=Please select user to assign or enter new user.');
 		  echo '<div class="alert alert-danger">Please select user to assign or enter new user.</div>';
 	  }
 
 	  else
 	  {
+		  
 		  if ($newUser!='')
 		  {
 			  $userToInsert = $newUser;
@@ -50,21 +51,19 @@
 		  }
 		   
 			$sqlDevices = "Update devices set assigned_to ='".$userToInsert."' where device_id = ".$deviceID;
-			  
+			echo $sqlDevices;
 			if($sqlUser!='' && !mysqli_query($con, $sqlUser) || !mysqli_query($con, $sqlDevices))
 				{
 					echo '<div class="alert alert-danger">Unexpected error, please try again !!!</div>';
 				}	
 			
 			else
-				{
-					echo "Inserted succesfully";
+				{					
 					header("refresh:0; url=index.php?message=User has been assigned successfully");
 				}
 	  }
    }
  ?>
- 
 
 <!DOCTYPE html>  
 <html>
@@ -109,7 +108,7 @@
 		var strUser = e.options[e.selectedIndex].value;
 		if(strUser == '0')
 		{
-			window.location.href='INDEX.php';
+			window.location.href='index.php';
 		}
 	 }
 	 
@@ -128,7 +127,7 @@
 		  <div class="form-group">
 			<label class="col-sm-2 col-form-label"><h6>Selected Device:</h6></label>
 			<div class="col-sm-10">
-			  <p class="form-control-static"><?php echo $deviceName; ?></p>
+			  <p class="form-control-static"><?php echo str_replace("+"," ",$deviceName); ?></p>
 			</div>
 		  </div>
 		  <div class="form-group">
@@ -151,14 +150,14 @@
 		  <div class="row">
 			<div class="col-sm-12 add-search-btns" style="margin-top:10px;">
 				  <button type="Submit" class="btn btn-primary" name="btnAssignUser" id="btnAssignUser" onclick="validate()" >Assign Device</button>
-				  <button type="button" class="btn btn-primary" id="add-device-btn" onclick = "location.href='INDEX.php';">Cancel</button>
+				  <button type="button" class="btn btn-primary" id="add-device-btn" onclick = "location.href='index.php';">Cancel</button>
 		  </div>
 		 </div> 
 		  
 		  <!-- Hidden field use to send silent information from one page to other, as we do not want to display that to user --> 
-		<input type="hidden" name="hdndeviceid" id="hdndeviceid" value="<?php echo $_GET["deviceid"];?>" />
+		<input type="hidden" name="hdndeviceid" id="hdndeviceid" value="<?php echo isset($_GET["deviceid"]) ? $_GET["deviceid"] : $_POST["hdndeviceid"];?>" />
 		<input type="hidden" name="hdnSelectedUser" id="hdnSelectedUser"  />
-		<input type="hidden" name="hdnDeviceName" id="hdnDeviceName" value= <?php if(isset($_GET['name'])) echo $_GET['name']; ?>  />
+		<input type="hidden" name="hdnDeviceName" id="hdnDeviceName" value="<?php echo isset($_GET['name']) ? $_GET['name'] : $_POST['hdnDeviceName']; ?>"  />
 
 		</form>
 		 

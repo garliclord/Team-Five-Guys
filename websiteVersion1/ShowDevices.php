@@ -18,7 +18,7 @@
   
   $queryS=$_SERVER['QUERY_STRING']; #Takes query string from URL
   
-     if($_SERVER['QUERY_STRING'] != '')
+     if($queryS != '')
     {
       
       $cntOSVer=0;
@@ -101,8 +101,13 @@
   	 $output ='';
   	 $cnt=1;
 	 
+
+		
+
+	
+
 	 $output .= '<table class="table" id="deviceTbl">
-        <tr>
+        <tr bgcolor=#ddd>
             <th>Device Name</th>
 			<th>Assigned to</th>
             <th>Device Type</th>
@@ -116,7 +121,7 @@
             <th>UUID</th>
             
         </tr>';
-		
+	$count=0;	
   	 #Fetch result in while
         while($row = mysqli_fetch_array($result))  
           {  
@@ -132,12 +137,13 @@
               $screen_resolution = $row['screen_resolution'];
               $grade = $row['grade'];
               $uuid = $row['uuid'];
-              
-              
-              $output .= '<tr>';
-              
-              $output .=  '<td ><a data-toggle="tooltip" title="Click to edit this device!" href=add_devices.php?deviceid='.$id.'>'.$name.'</a></td>';
-			  $output .=  '<td><a data-toggle="tooltip" title="Click to Assign User!" href=AssignUser.php?deviceid='.$id.'&name='.$name.'>'. $assigned_to. '</a></td>';
+              $encodedName= urlencode(utf8_encode($name));
+			  $count=$count+1;
+			  $color = $count%2==0 ? '#ddd':'';
+
+              $output .= '<tr bgcolor= '.$color.'>';
+              $output .=  '<td><a data-toggle="tooltip" title="Click to edit this device!" href=add_devices.php?deviceid='.$id.'>'.$name.'</a></td>';
+			  $output .=  '<td><a data-toggle="tooltip" title="Click to Assign User!" href=AssignUser.php?deviceid='.$id.'&name='.$encodedName.'>'. $assigned_to. '</a></td>';
               $output .=  '<td>' . $type . '</td>';
 			  $output .=  '<td>' . $os_type . '</td>';
               $output .=  '<td>' . $os_version . '</td>';
@@ -146,7 +152,7 @@
               $output .=  '<td>' . $bit . '</td>';
               $output .=  '<td>' . $screen_resolution . '</td>';
               $output .=  '<td>' . $grade . '</td>';
-              $output .=  '<td >' . $uuid . '</td>';
+              $output .=  '<td>' . $uuid . '</td>';
               $output .= '</tr>';
               
           }  

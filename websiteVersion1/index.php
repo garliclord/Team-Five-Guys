@@ -61,8 +61,8 @@
                         <label class="btn btn-secondary" id="android-btn" onclick="showAndroidVersion()">
                             <input type="radio" name="os" value="android" autocomplete="off"> Android
                         </label>
-                        <label class="btn btn-secondary" id="other-btn">
-                            <input type="radio" name="os" value="other" autocomplete="off" onclick="hideVersion()"> Other
+                        <label class="btn btn-secondary" id="other-btn" onclick="hideVersion()">
+                            <input type="radio" name="os" value="other" autocomplete="off" > Other
                         </label>
 
                 </div>
@@ -148,11 +148,11 @@
         </div>
 	</div>
     </div>
-	<hr>
+	<br>
 
         <?php echo fill_devices($con); ?>
 
-		<!-- jQuery first, then Popper.js, then Bootstrap JS-->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -160,7 +160,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 
-        </form>
+    </form>
 		
 
 </body>

@@ -17,17 +17,17 @@ if (isset($_GET['deviceid']))
 
 if (isset($_POST['btnAddDevice']))
 {
-	$device_name 	= $_POST['device_name'];
-	$os_type 		= $_POST['os_type'];
-	$device_type 	= $_POST['device_type'];
-	$os_version 	= $_POST['os_version'];
-	$ram 			= $_POST['ram'];
-	$cpu 			= $_POST['cpu'];
-	$bit 			= $_POST['bit'];
-	$screen 		= $_POST['screen'];
-	$grade 			= $_POST['grade'];
-	$uuid 			= $_POST['uuid'];
-	$hdndeviceId 	= $_POST['hdnDeviceId']; // this hidden field have device id from query string
+	$device_name 	= trim($_POST['device_name']);
+	$os_type 		= trim($_POST['os_type']);
+	$device_type 	= trim($_POST['device_type']);
+	$os_version 	= trim($_POST['os_version']);
+	$ram 			= trim($_POST['ram']);
+	$cpu 			= trim($_POST['cpu']);
+	$bit 			= trim($_POST['bit']);
+	$screen 		= trim($_POST['screen']);
+	$grade 			= trim($_POST['grade']);
+	$uuid 			= trim($_POST['uuid']);
+	$hdndeviceId 	= trim($_POST['hdnDeviceId']); // this hidden field have device id from query string
 
 	$sqlDevices = '';
 	$queryStatus='';
@@ -52,17 +52,20 @@ if (isset($_POST['btnAddDevice']))
 		 grade, uuid, assigned_to) VALUES ('".$device_name."', '".$os_type."', '".$device_type."', '".$os_version."', '".$ram."',
 		'".$cpu."', '".$bit."', '".$screen."', '".$grade."','".$uuid."', 'Assign')";
 		
-		$queryStatus = "Data Inserted successfully !!!";
+		$queryStatus = "Device added successfully !!!";
 		
 	}
  
-	if(!mysqli_query($con, $sqlDevices))
+	if($device_name == '')
+		{
+		echo '<div class="alert alert-danger">Please Enter Device Name !!!</div>';
+		}	
+	else  if(!mysqli_query($con, $sqlDevices))
 		{
 		echo '<div class="alert alert-danger">Unexpected error, please try again !!!</div>';
 		}	
 	else
 		{	
-		echo $queryStatus;
 		header(  "refresh:0; url=index.php?message=".$queryStatus  );
 		}		
 
@@ -96,42 +99,42 @@ if (isset($_POST['btnAddDevice']))
         <table class = "table">
           <tr>
             <td width="20%" ><h6>Device Name:</h6></td>
-            <td><input type="text" name="device_name" value=" <?php if(isset($row['name'])) echo $row['name']; ?>"><p>*Please do not leave this blank</p></td>
+            <td><input type="text" name="device_name" value=" <?php if(isset($row['name'])) echo $row['name']; ?>"</td>
           </tr>
           <tr>
-            <td>OS Type:</td>
+            <td><h6>OS Type:</h6></td>
             <td><input type="text" name="os_type" value="<?php if(isset($row['name'])) echo $row['os_type']; ?>"> </td>
           </tr>
           <tr>
-            <td>Device Type:</td>
+            <td><h6>Device Type:</h6></td>
             <td><input type="text" name="device_type" value="<?php if(isset($row['name'])) echo $row['type']; ?>"> </td>
           </tr>
 		  <tr>
-            <td>OS Version:</td>
+            <td><h6>OS Version:</h6></td>
             <td><input type="text" name="os_version" value="<?php if(isset($row['name'])) echo $row['os_version']; ?>"> </td>
           </tr>
 		  <tr>
-            <td>RAM:</td>
+            <td><h6>RAM:</h6></td>
             <td><input type="text" name="ram" value="<?php if(isset($row['name'])) echo $row['ram']; ?>"> </td>
           </tr>
 		  <tr>
-            <td>CPU:</td>
+            <td><h6>CPU:</h6></td>
             <td><input type="text" name="cpu" value="<?php if(isset($row['name'])) echo $row['cpu']; ?>"> </td>
           </tr>
 		  <tr>
-            <td>BIT:</td>
+            <td><h6>BIT:</h6></td>
             <td><input type="text" name="bit" value="<?php if(isset($row['name'])) echo $row['bit']; ?>"> </td>
           </tr>
 		  <tr>
-            <td>Screen Resolution:</td>
+            <td><h6>Screen Resolution:</h6></td>
             <td><input type="text" name="screen" value="<?php if(isset($row['name'])) echo $row['screen_resolution']; ?>"> </td>
           </tr>
 		  <tr>
-            <td>Grade:</td>
+            <td><h6>Grade:</h6></td>
             <td><input type="text" name="grade" value="<?php if(isset($row['name'])) echo $row['grade']; ?>"> </td>
           </tr>
 		  <tr>
-            <td>UUID:</td>
+            <td><h6>UUID:</h6></td>
             <td><input type="text" name="uuid" value="<?php if(isset($row['name'])) echo $row['uuid']; ?>"> </td>
           </tr>
 		  <!-- This hidden field used to send a device id to a variable as on submit btn click page gets reload and it looses query string -->
@@ -141,11 +144,12 @@ if (isset($_POST['btnAddDevice']))
         <div class="row">
             <div class="col-sm-12 add-search-btns" style="margin-bottom:10px;">
                 <button id="btnAddDevice" type="submit" name="btnAddDevice" class="btn btn-primary" >Submit</button>
-		  <button type="button" class="btn btn-primary" id="add-device-btn" onclick = "location.href='INDEX.php';">Cancel</button>
+				<button type="button" class="btn btn-primary" id="add-device-btn" onclick = "location.href='index.php';">Cancel</button>
 		</div>
         </div>
 		
 		</table>
+		<hr>
         
      </form> 
 	</div>
